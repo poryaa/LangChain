@@ -1,0 +1,6 @@
+python=3.12
+langchain-text-splitters
+langchain-postgres
+langchain
+langchain-openai
+langchain-community
