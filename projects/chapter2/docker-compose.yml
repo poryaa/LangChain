@@ -1,0 +1,17 @@
+
+services:
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: pgvector-container
+    environment:
+      POSTGRES_USER: langchain
+      POSTGRES_PASSWORD: langchain
+      POSTGRES_DB: langchain
+      POSTGRES_HOST_AUTH_METHOD: md5
+    ports:
+      - "6024:5432"
+    volumes:
+      - pgvector_RAG_chp2data:/var/lib/postgresql/data
+
+volumes:
+  pgvector_RAG_chp2data:
