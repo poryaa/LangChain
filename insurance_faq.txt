@@ -1,0 +1,80 @@
+FAQ ID: 001
+Question: What is health insurance?
+Answer: Health insurance is a contract with an insurer that helps pay for medical expenses such as doctor visits, hospital stays, and prescriptions. You typically pay a premium and may also pay deductibles, copayments, and coinsurance for covered services.
+---
+FAQ ID: 002
+Question: What is a deductible?
+Answer: A deductible is the amount you must pay out of pocket for covered healthcare services before your insurance plan starts to pay. Once you meet the deductible, you usually only pay copayments or coinsurance.
+---
+FAQ ID: 003
+Question: What is a copayment (copay)?
+Answer: A copayment is a fixed amount you pay for a covered service, such as a clinic visit or prescription, at the time you receive care. The insurance plan pays the remaining cost.
+---
+FAQ ID: 004
+Question: What is coinsurance?
+Answer: Coinsurance is the percentage of costs of a covered healthcare service that you pay after you have met your deductible. For example, if your plan has 20% coinsurance, you pay 20% and the insurer pays 80% of the allowed amount.
+---
+FAQ ID: 005
+Question: What is an out-of-pocket maximum?
+Answer: An out-of-pocket maximum is the most you will pay for covered services in a policy period, usually one year. Once you reach this amount through deductibles, copayments, and coinsurance, your plan pays 100% of covered services for the rest of the period.
+---
+FAQ ID: 006
+Question: What is a preauthorization or prior authorization?
+Answer: Preauthorization (or prior authorization) is approval from your insurance company before you receive a service or medication. Some services require this approval for the plan to cover them.
+---
+FAQ ID: 007
+Question: How do I file an insurance claim?
+Answer: To file a claim, you or your provider submit a claim form along with any required documentation, such as medical bills or receipts, to the insurance company. Many providers submit claims on your behalf, but for out-of-network or reimbursement claims, you may need to submit them yourself.
+---
+FAQ ID: 008
+Question: What is the difference between in-network and out-of-network providers?
+Answer: In-network providers have a contract with your insurance company and usually cost you less. Out-of-network providers do not have such a contract, which often means higher out-of-pocket costs or no coverage at all, depending on your plan.
+---
+FAQ ID: 009
+Question: Does my insurance cover emergency room visits?
+Answer: Many plans cover emergency room visits, but coverage varies. You may have a higher copayment or coinsurance for emergency care. It is important to review your policy to understand emergency coverage, including ambulance services and urgent care alternatives.
+---
+FAQ ID: 010
+Question: How can I check if a service is covered by my policy?
+Answer: You can review your policy documents, log in to your insurer's member portal, or contact customer service using the number on your insurance card. Ask specifically whether the service, provider, and facility are covered and what your cost share will be.
+---
+FAQ ID: 011
+Question: What is a waiting period in insurance?
+Answer: A waiting period is a set amount of time you must wait after your policy starts before certain benefits or coverage become available. Some plans apply waiting periods to pre-existing conditions or specific types of services.
+---
+FAQ ID: 012
+Question: Can I add family members to my insurance policy?
+Answer: Many insurance plans allow you to add eligible dependents such as a spouse, partner, or children. You may be able to add them during initial enrollment, during open enrollment periods, or after a qualifying life event like marriage or birth.
+---
+FAQ ID: 013
+Question: What is a qualifying life event?
+Answer: A qualifying life event is a major change in your life that allows you to enroll in or change your insurance coverage outside the regular open enrollment period. Examples include marriage, divorce, birth or adoption of a child, and loss of other coverage.
+---
+FAQ ID: 014
+Question: Why was my claim denied?
+Answer: Claims may be denied for several reasons, including missing information, services not covered by your policy, lack of preauthorization when required, or services considered not medically necessary. Your explanation of benefits (EOB) should describe the reason for denial.
+---
+FAQ ID: 015
+Question: How can I appeal a denied claim?
+Answer: To appeal a denied claim, review the denial letter or explanation of benefits for instructions. You usually need to submit a written appeal, additional documentation, and sometimes a letter from your healthcare provider explaining why the service should be covered.
+---
+FAQ ID: 016
+Question: What is the difference between HMO and PPO plans?
+Answer: HMO (Health Maintenance Organization) plans typically require you to choose a primary care provider and get referrals for specialists, and they often only cover care from in-network providers. PPO (Preferred Provider Organization) plans offer more flexibility to see out-of-network providers but may have higher premiums and out-of-pocket costs.
+---
+FAQ ID: 017
+Question: Does my plan cover preventive services?
+Answer: Many plans cover preventive services such as annual check-ups, vaccinations, and screenings, often at no cost when you use in-network providers. Check your policy to see which preventive services are covered and how often.
+---
+FAQ ID: 018
+Question: What is a premium?
+Answer: A premium is the amount you pay, usually monthly, to keep your insurance policy active. This is separate from out-of-pocket costs like deductibles, copayments, and coinsurance.
+---
+FAQ ID: 019
+Question: What documents do I need when submitting a claim?
+Answer: You typically need a completed claim form, itemized bills or invoices, receipts for payments made, and sometimes referral or authorization documents. Your insurer’s website or customer service can provide a checklist for your specific plan.
+---
+FAQ ID: 020
+Question: How do I find out what my coverage limits are?
+Answer: Coverage limits are described in your policy or benefits summary. You can also log in to your member portal or contact customer service to ask about annual limits, visit caps, or maximum coverage amounts for specific services.
+---
