@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rosenxt_bot</title>
+    <style>
+      body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+      #log p { margin: 0.3rem 0; }
+      #log .user { font-weight: bold; }
+      #log .bot { margin-left: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Rosenxt_bot</h1>
+
+    <div id="log"></div>
+
+    <input id="q" type="text" placeholder="Ask a question..." style="width:80%;">
+    <button id="send">Send</button>
+
+    <script>
+      async function sendQuestion() {
+        const input = document.getElementById("q");
+        const question = input.value.trim();
+        if (!question) return;
+
+        // show your question
+        const log = document.getElementById("log");
+        log.innerHTML += `<p class="user">You: ${question}</p>`;
+
+        // send to Flask /chat as JSON
+        const resp = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: question })
+        });
+
+        const data = await resp.json();
+        log.innerHTML += `<p class="bot">Bot: ${data.answer || data.error}</p>`;
+
+        input.value = "";
+        log.scrollTop = log.scrollHeight;
+      }
+
+      document.getElementById("send").addEventListener("click", sendQuestion);
+      document.getElementById("q").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") sendQuestion();
+      });
+    </script>
+  </body>
+</html>
