@@ -1,12 +1,12 @@
 # app.py
 from flask import Flask, request, jsonify, render_template
-from rag_core import answer_question  # <- now uses your DB + LangGraph
+from rag_core import answer_question  # now uses DB + LangGraph
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("chat.html")  # same simple chat UI as before
+    return render_template("chat.html")  
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -14,7 +14,7 @@ def chat():
     question = data.get("question", "")
     if not question:
         return jsonify({"error": "Missing 'question'"}), 400
-    answer = answer_question(question)  # -> uses PGVector + LangGraph
+    answer = answer_question(question)  # uses PGVector + LangGraph
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
