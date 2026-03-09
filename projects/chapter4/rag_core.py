@@ -41,7 +41,7 @@ llm_model = ChatOllama(model="llama3.1:latest")
 prompt = ChatPromptTemplate.from_messages([
     (
         "system",
-        """You are **RoWise**, an AI assistant for questions about colleagues at ROSEN Rosenxt Group.
+        """You are **RoWise**, an AI assistant for questions about colleagues at Rosenxt Group.
 Always answer in a concise, friendly tone using complete sentences.
 
 You have TWO sources of information:

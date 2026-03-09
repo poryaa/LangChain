@@ -6,47 +6,60 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Page: white background, centered chat card */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background-color: #ffffff;
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #e5e7eb;
+      color: #0f172a;
     }
 
+    /* Chat container: dark card */
     .chat-wrapper {
       width: 520px;
       max-width: 100%;
       height: 780px;
-      background: rgba(15, 23, 42, 0.95);
+      background: #050708;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.85);
       display: flex;
       flex-direction: column;
+      border: 1px solid #111827;
+      color: #e5e7eb;
     }
 
+    /* Header: black with turquoise accents */
     .chat-header {
       padding: 14px 18px;
-      background: linear-gradient(135deg, #2563eb, #22c55e);
+      background: #000000;
       display: flex;
       align-items: center;
       gap: 10px;
-      color: white;
+      color: #50DCE1;
+      border-bottom: 1px solid #111827;
     }
 
     .chat-header-avatar {
       width: 32px;
       height: 32px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.2);
+      background: rgba(15,23,42,0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 600;
-      font-size: 18px;
+      overflow: hidden;
+      border: 1px solid #50DCE1;
+    }
+
+    .chat-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
     }
 
     .chat-header-text {
@@ -57,21 +70,24 @@
     .chat-header-title {
       font-weight: 600;
       font-size: 15px;
+      color: #50DCE1;
     }
 
     .chat-header-subtitle {
       font-size: 11px;
       opacity: 0.9;
+      color: #9ca3af;
     }
 
+    /* Messages area: dark with subtle turquoise glow */
     .chat-messages {
       flex: 1;
       padding: 16px 14px 10px;
       overflow-y: auto;
       background:
-        radial-gradient(circle at 0 0, #22c55e22, transparent 60%),
-        radial-gradient(circle at 100% 100%, #2563eb22, transparent 60%),
-        #020617;
+        radial-gradient(circle at 0 0, #50DCE115, transparent 60%),
+        radial-gradient(circle at 100% 100%, #50DCE115, transparent 60%),
+        #000000;
     }
 
     .message-row {
@@ -97,12 +113,14 @@
       background: #1f2937;
       color: #e5e7eb;
       border-bottom-left-radius: 4px;
+      border: 1px solid #111827;
     }
 
     .message-row.user .message-bubble {
-      background: linear-gradient(135deg, #2563eb, #22c55e);
-      color: white;
+      background: #50DCE1;
+      color: #000000;
       border-bottom-right-radius: 4px;
+      border: 1px solid #50DCE1;
     }
 
     .message-meta {
@@ -110,12 +128,14 @@
       font-size: 10px;
       opacity: 0.7;
       text-align: right;
+      color: #9ca3af;
     }
 
+    /* Input area */
     .chat-input-area {
       padding: 10px 10px 12px;
       border-top: 1px solid #111827;
-      background: #020617f2;
+      background: #000000;
       display: flex;
       gap: 8px;
       align-items: center;
@@ -128,7 +148,7 @@
       padding: 9px 14px;
       font-size: 13px;
       outline: none;
-      background: #020617;
+      background: #050708;
       color: #e5e7eb;
     }
 
@@ -136,25 +156,36 @@
       color: #6b7280;
     }
 
+    .chat-input:focus {
+      border-color: #50DCE1;
+      box-shadow: 0 0 0 1px #50DCE1;
+    }
+
+    /* Send button: solid turquoise */
     .send-button {
       border: none;
       border-radius: 999px;
       padding: 9px 14px;
-      background: linear-gradient(135deg, #2563eb, #22c55e);
-      color: white;
+      background: #50DCE1;
+      color: #000000;
       font-weight: 600;
       font-size: 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 4px;
-      box-shadow: 0 6px 18px rgba(37,99,235,0.35);
+      box-shadow: 0 6px 18px rgba(80,220,225,0.5);
     }
 
     .send-button:disabled {
-      opacity: 0.5;
+      opacity: 0.4;
       cursor: default;
       box-shadow: none;
+    }
+
+    .send-button:hover:not(:disabled) {
+      filter: brightness(1.05);
+      box-shadow: 0 8px 22px rgba(80,220,225,0.6);
     }
 
     .typing-indicator {
@@ -174,13 +205,17 @@
       0%, 80%, 100% { opacity: 0; }
       40% { opacity: 1; }
     }
-
   </style>
 </head>
 <body>
   <div class="chat-wrapper">
     <div class="chat-header">
-      <div class="chat-header-avatar">R</div>
+      <div class="chat-header-avatar">
+        <!-- avatar.png should be in: static/avatar.png -->
+        <img src="{{ url_for('static', filename='avatar.png') }}"
+             alt="RoWise avatar"
+             class="chat-avatar-img" />
+      </div>
       <div class="chat-header-text">
         <div class="chat-header-title">RoWise</div>
         <div class="chat-header-subtitle">Ask about colleagues and roles</div>
@@ -221,7 +256,10 @@
       const meta = document.createElement("div");
       meta.className = "message-meta";
       const now = new Date();
-      meta.textContent = now.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"});
+      meta.textContent = now.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
 
       bubble.appendChild(meta);
       row.appendChild(bubble);
