@@ -1,1 +1,3 @@
 .langchain_venv/
+.env
+projects/chapter9/.env
