@@ -1,0 +1,11 @@
+langgraph
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+langsmith
+pydantic
+duckduckgo-search
+beautifulsoup4
+tiktoken
+lxml
