@@ -2,3 +2,6 @@
 .env
 projects/chapter9/.env
 projects/chapter10/.env
+projects/Recruiter_Copilot/data
+projects/Recruiter_Copilot/dataset_generators
+projects/Recruiter_Copilot/dataset
