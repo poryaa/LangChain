@@ -1,17 +1,17 @@
 services:
-  pgvector:
+  pgvector_v3:
     image: pgvector/pgvector:pg16
-    container_name: pgvector-container
+    container_name: pgvector-container-v3
     restart: unless-stopped
     environment:
       POSTGRES_USER: langchain
       POSTGRES_PASSWORD: langchain
-      POSTGRES_DB: langchain
+      POSTGRES_DB: langchain_v3
       POSTGRES_HOST_AUTH_METHOD: md5
     ports:
-      - "6024:5432"
+      - "6025:5432"
     volumes:
-      - Recruiter_Copilot_volume:/var/lib/postgresql/data
+      - Recruiter_Copilot_volume_v3:/var/lib/postgresql/data
 
 volumes:
-  Recruiter_Copilot_volume:
+  Recruiter_Copilot_volume_v3:
