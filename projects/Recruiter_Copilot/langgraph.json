@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "recruiter_copilot": "./src/recruiter_copilot/graph.py:graph"
+  },
+  "env": ".env"
+}
