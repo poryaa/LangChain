@@ -12,14 +12,6 @@ class RewriterOutput(BaseModel):
     rewritten_query: str = Field(
         description="Short semantic search query optimized for resume retrieval"
     )
-    city: Optional[str] = Field(
-        default=None,
-        description="Candidate city if explicitly mentioned in the recruiter query",
-    )
-    country: Optional[str] = Field(
-        default=None,
-        description="Candidate country if explicitly mentioned in the recruiter query",
-    )
 
 
 def get_llm() -> ChatOllama:
@@ -29,17 +21,10 @@ def get_llm() -> ChatOllama:
 
 def rewrite_query_node(state: RecruiterCopilotState) -> dict:
     user_query = state["user_query"]
-
     llm = get_llm()
     structured_llm = llm.with_structured_output(RewriterOutput)
-
     prompt = REWRITE_QUERY_PROMPT.format(user_query=user_query)
     result = structured_llm.invoke(prompt)
-
     return {
-        "rewritten_query": result.rewritten_query,
-        "inferred_filters": {
-            "city": result.city,
-            "country": result.country,
-        },
+        "rewritten_query": result.rewritten_query.strip(),
     }

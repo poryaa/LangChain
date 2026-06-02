@@ -1,7 +1,5 @@
 import os
-
 from langchain_ollama import ChatOllama
-
 from src.recruiter_copilot.prompts.generate import GENERATE_ANSWER_PROMPT
 from src.recruiter_copilot.state import RecruiterCopilotState
 
@@ -14,9 +12,9 @@ def get_llm() -> ChatOllama:
 def generate_answer_node(state: RecruiterCopilotState) -> dict:
     user_query = state["user_query"]
     rewritten_query = state.get("rewritten_query", user_query)
-    retrieved_docs = state.get("retrieved_docs", [])
+    docs = state.get("relevant_docs", state.get("retrieved_docs", []))
 
-    if not retrieved_docs:
+    if not docs:
         return {
             "generated_answer": (
                 f"Recruiter query: {user_query}\n"
@@ -28,15 +26,15 @@ def generate_answer_node(state: RecruiterCopilotState) -> dict:
     llm = get_llm()
 
     evidence_blocks = []
-    for doc in retrieved_docs:
+    for doc in docs[:5]:
         evidence_blocks.append(
             "\n".join(
                 [
                     f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
+                    f"Resume file name: {doc.get('file_name', 'unknown')}",
                     f"Retrieval score: {doc.get('score', 0.0)}",
                     f"Relevance reason: {doc.get('relevance_reason', '')}",
-                    f"Metadata: {doc.get('metadata', {})}",
-                    f"Content: {doc.get('content', '')[:2200]}",
+                    f"Content: {doc.get('content', '')[:1200]}",
                 ]
             )
         )

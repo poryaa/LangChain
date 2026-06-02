@@ -1,5 +1,5 @@
 GRADE_DOC_PROMPT = """
-You are grading whether a retrieved resume/CV chunk is relevant to a recruiter request.
+You are selecting which retrieved resume/CV chunks are relevant to a recruiter request.
 
 Recruiter request:
 {user_query}
@@ -7,16 +7,12 @@ Recruiter request:
 Retrieval query:
 {rewritten_query}
 
-Resume/CV chunk:
-{content}
+Candidates:
+{candidates_text}
 
 Instructions:
-- Mark relevant only if the chunk contains evidence that helps answer the recruiter request.
+- Select ONLY candidates that are clearly relevant.
 - Be strict.
-- Reject chunks that only overlap on generic words such as analytics, development, learning, management, or AI but do not actually match the intended role, skills, or constraints.
-- Do not guess missing evidence.
-
-Return:
-- is_relevant: true or false
-- reason: short explanation
+- Return the exact candidate_id values of relevant candidates only.
+- If none are relevant, return an empty list.
 """

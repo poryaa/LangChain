@@ -8,11 +8,8 @@ from src.recruiter_copilot.state import RecruiterCopilotState
 
 
 class DocGrade(BaseModel):
-    is_relevant: bool = Field(
-        description="Whether the resume chunk is relevant to the recruiter request"
-    )
-    reason: str = Field(
-        description="Short explanation for the relevance judgment"
+    relevant_ids: list[str] = Field(
+        description="List of candidate_id values that are clearly relevant to the recruiter request"
     )
 
 
@@ -27,31 +24,31 @@ def grade_retrieved_docs_node(state: RecruiterCopilotState) -> dict:
     rewritten_query = state.get("rewritten_query", user_query)
 
     if not retrieved_docs:
-        return {
-            "retrieved_docs": [],
-            "retrieval_count": 0,
-        }
+        return {"relevant_docs": [], "retrieval_count": 0}
+
+    # Build one combined prompt for all docs
+    candidates_text = "\n\n---\n\n".join(
+        f"Candidate ID: {doc.get('candidate_id')}\n"
+        f"Resume file: {doc.get('file_name')}\n"
+        f"Content: {doc.get('content', '')[:800]}"
+        for doc in retrieved_docs
+    )
 
     llm = get_llm()
     grader = llm.with_structured_output(DocGrade)
 
-    relevant_docs = []
+    prompt = GRADE_DOC_PROMPT.format(
+        user_query=user_query,
+        rewritten_query=rewritten_query,
+        candidates_text=candidates_text,
+    )
+    result = grader.invoke(prompt)
 
-    for doc in retrieved_docs:
-        content = doc.get("content", "")[:1800]
-        prompt = GRADE_DOC_PROMPT.format(
-            user_query=user_query,
-            rewritten_query=rewritten_query,
-            content=content,
-        )
-        result = grader.invoke(prompt)
+    # Filter by returned relevant_ids
+    relevant_ids = set(result.relevant_ids)
+    relevant_docs = [
+        doc for doc in retrieved_docs
+        if doc.get("candidate_id") in relevant_ids
+    ]
 
-        if result.is_relevant:
-            enriched_doc = dict(doc)
-            enriched_doc["relevance_reason"] = result.reason
-            relevant_docs.append(enriched_doc)
-
-    return {
-        "retrieved_docs": relevant_docs,
-        "retrieval_count": len(relevant_docs),
-    }
+    return {"relevant_docs": relevant_docs, "retrieval_count": len(relevant_docs)}
