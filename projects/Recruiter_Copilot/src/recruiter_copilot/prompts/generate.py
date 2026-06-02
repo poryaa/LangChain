@@ -22,4 +22,5 @@ Output format:
   1. Candidate ID | Resume file name | Why relevant (evidence only)
 - Stop immediately after the last candidate. Do not add any closing line.
 - ONLY if the evidence contains zero relevant candidates, write: "No matching candidates found."
+- Output the ranked shortlist exactly once. Do not repeat candidate IDs in any other format.
 """
