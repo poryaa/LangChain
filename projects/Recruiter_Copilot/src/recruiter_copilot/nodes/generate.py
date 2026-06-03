@@ -1,5 +1,8 @@
+# nodes/generate.py
 import os
+
 from langchain_ollama import ChatOllama
+
 from src.recruiter_copilot.prompts.generate import GENERATE_ANSWER_PROMPT
 from src.recruiter_copilot.state import RecruiterCopilotState
 
@@ -9,45 +12,69 @@ def get_llm() -> ChatOllama:
     return ChatOllama(model=model_name, temperature=0)
 
 
+# nodes/generate.py
+
 def generate_answer_node(state: RecruiterCopilotState) -> dict:
     user_query = state["user_query"]
     rewritten_query = state.get("rewritten_query", user_query)
+    response_mode = state.get("response_mode", "shortlist")
     docs = state.get("relevant_docs", state.get("retrieved_docs", []))
 
     if not docs:
         return {
             "generated_answer": (
-                f"Recruiter query: {user_query}\n"
-                f"Rewritten query: {rewritten_query}\n\n"
-                "No relevant candidates found based on the retrieved evidence."
+                f"No relevant candidates found for: {user_query}\n"
+                f"Rewritten query: {rewritten_query}"
+            )
+        }
+
+    #filter out docs with missing IDs / very weak evidence
+    filtered_docs = []
+    for doc in docs:
+        cid = str(doc.get("candidate_id", "")).strip().lower()
+        fname = str(doc.get("file_name", "")).strip().lower()
+        content = doc.get("content", "") or ""
+
+        if not content or len(content.strip()) < 80:
+            continue
+        if cid in ("", "unknown"):
+            continue
+        # optional: also skip unknown filenames
+        if fname in ("", "unknown", "unknown.pdf"):
+            continue
+
+        filtered_docs.append(doc)
+
+    # Keep at most 5 good candidates
+    docs = filtered_docs[:5]
+
+    if not docs:
+        return {
+            "generated_answer": (
+                f"No high-confidence candidates found for: {user_query}\n"
+                f"Rewritten query: {rewritten_query}"
             )
         }
 
     llm = get_llm()
 
     evidence_blocks = []
-    for doc in docs[:5]:
+    for doc in docs:
         evidence_blocks.append(
-            "\n".join(
-                [
-                    f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
-                    f"Resume file name: {doc.get('file_name', 'unknown')}",
-                    f"Retrieval score: {doc.get('score', 0.0)}",
-                    f"Relevance reason: {doc.get('relevance_reason', '')}",
-                    f"Content: {doc.get('content', '')[:1200]}",
-                ]
-            )
+            "\n".join([
+                f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
+                f"Resume file: {doc.get('file_name', 'unknown')}",
+                f"Retrieval score: {doc.get('score', 0.0):.4f}",
+                f"Content: {doc.get('content', '')[:400]}",
+            ])
         )
-
     evidence = "\n\n---\n\n".join(evidence_blocks)
 
     prompt = GENERATE_ANSWER_PROMPT.format(
         user_query=user_query,
         rewritten_query=rewritten_query,
+        response_mode=response_mode,
         evidence=evidence,
     )
     response = llm.invoke(prompt)
-
-    return {
-        "generated_answer": response.content,
-    }
+    return {"generated_answer": response.content}

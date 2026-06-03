@@ -1,18 +1,17 @@
-GRADE_DOC_PROMPT = """
-You are selecting which retrieved resume/CV chunks are relevant to a recruiter request.
+# prompts/grade.py
 
-Recruiter request:
-{user_query}
+GRADE_DOC_PROMPT = """\
+You are a recruiter assistant. Your job is to filter retrieved resume chunks.
 
-Retrieval query:
-{rewritten_query}
+Recruiter query: {user_query}
+Rewritten query: {rewritten_query}
+Extracted filters: {extracted_filters}
 
-Candidates:
+For each candidate below, decide if they are RELEVANT to the query.
+A candidate is relevant if their resume evidence matches the intent and filters.
+Return only the candidate_ids that are clearly relevant.
+
+--- CANDIDATES ---
 {candidates_text}
-
-Instructions:
-- Select ONLY candidates that are clearly relevant.
-- Be strict.
-- Return the exact candidate_id values of relevant candidates only.
-- If none are relevant, return an empty list.
+--- END CANDIDATES ---
 """

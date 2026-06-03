@@ -4,7 +4,6 @@ projects/chapter9/.env
 projects/chapter10/.env
 projects/Recruiter_Copilot/db_prep/dataset_generators
 projects/Recruiter_Copilot/db_prep/dataset
-projects/Recruiter_Copilot/.envprojects/Recruiter_Copilot/.langgraph_api/
+projects/Recruiter_Copilot/.langgraph_api/
 __pycache__/
-*.pyc
-*.pckl
+*.py[cod]

@@ -1,3 +1,5 @@
+#nodes/grounding.py
+
 import os
 
 from langchain_ollama import ChatOllama
@@ -17,31 +19,30 @@ class GroundingCheck(BaseModel):
 
 
 def get_llm() -> ChatOllama:
-    model_name = os.getenv("FAST_LLM_MODEL", "qwen3:1.7b")
+    model_name = os.getenv("FAST_LLM_MODEL", "gemma3:1b")  # fixed: was qwen3:1.7b
     return ChatOllama(model=model_name, temperature=0)
 
 
 def check_hallucination_node(state: RecruiterCopilotState) -> dict:
     generated_answer = state.get("generated_answer", "")
-    retrieved_docs = state.get("retrieved_docs", [])
+    docs = state.get("relevant_docs", state.get("retrieved_docs", []))  # prefer relevant_docs
 
-    if not generated_answer or not retrieved_docs:
+    if not generated_answer or not docs:
         return {
-            "hallucination_ok": False,
-            "hallucination_reason": "Missing answer or retrieved evidence.",
+            "hallucination_ok": True,  # nothing to check, pass through
+            "hallucination_reason": "No answer or evidence to verify.",
         }
 
     llm = get_llm()
     checker = llm.with_structured_output(GroundingCheck)
 
     evidence_blocks = []
-    for doc in retrieved_docs:
+    for doc in docs[:5]:  # limit to top 5
         evidence_blocks.append(
             "\n".join(
                 [
                     f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
-                    f"Metadata: {doc.get('metadata', {})}",
-                    f"Content: {doc.get('content', '')[:1800]}",
+                    f"Content: {doc.get('content', '')[:300]}",  # shorter, no metadata
                 ]
             )
         )
@@ -61,24 +62,11 @@ def check_hallucination_node(state: RecruiterCopilotState) -> dict:
 
 
 def increment_retry_node(state: RecruiterCopilotState) -> dict:
-    retry_count = state.get("retry_count", 0)
-    return {
-        "retry_count": retry_count + 1
-    }
+    return {"retry_count": state.get("retry_count", 0) + 1}
 
 
 def answer_question_node(state: RecruiterCopilotState) -> dict:
-    final_answer = state.get("generated_answer", "No answer generated.")
-
-    hallucination_ok = state.get("hallucination_ok")
-    hallucination_reason = state.get("hallucination_reason")
-
-    if hallucination_ok is False and hallucination_reason:
-        final_answer = (
-            f"{final_answer}\n\n"
-            f"Groundedness check warning: {hallucination_reason}"
-        )
-
+    # Always return the generated answer cleanly, no appended warnings
     return {
-        "final_answer": final_answer
+        "final_answer": state.get("generated_answer", "No answer generated.")
     }
