@@ -1,3 +1,5 @@
+#nodes/grounding.py
+
 import os
 
 from langchain_ollama import ChatOllama
@@ -40,7 +42,7 @@ def check_hallucination_node(state: RecruiterCopilotState) -> dict:
             "\n".join(
                 [
                     f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
-                    f"Content: {doc.get('content', '')[:800]}",  # shorter, no metadata
+                    f"Content: {doc.get('content', '')[:300]}",  # shorter, no metadata
                 ]
             )
         )
