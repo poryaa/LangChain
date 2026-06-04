@@ -8,3 +8,5 @@ projects/Recruiter_Copilot/.env
 projects/Recruiter_Copilot/.langgraph_api/
 __pycache__/
 *.py[cod]
+projects/Recruiter_Copilot/.langgraph_api
+projects/Recruiter_Copilot/tests/__pycache__
