@@ -7,3 +7,11 @@ projects/Recruiter_Copilot/db_prep/dataset
 projects/Recruiter_Copilot/.langgraph_api/
 __pycache__/
 *.py[cod]
+<<<<<<< HEAD
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+
+# LangGraph / LangChain runtime state
+*.pckl
+.langgraph_api/

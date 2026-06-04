@@ -1,0 +1,1436 @@
+[
+  {
+    "input": "Find candidates with 7+ years of mortgage loan processing experience who also have underwriting skills.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "3547447.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Mortgage Loan Processing",
+      "Underwriting",
+      "FHA",
+      "Risk Management",
+      "Quality Assurance"
+    ],
+    "expected_answer_summary": "The candidate in 3547447.pdf has 7 years of mortgage loan processing and banking experience combined with 3 years of underwriting and lending experience. They held roles including Consumer Underwriter II and Loan Processor, working with FHA, conventional, and VA loans. They also bring 3 years of risk management and 3 years of compliance and quality assurance."
+  },
+  {
+    "input": "Tell me about the candidate in 3547447.pdf — what is their background and what roles have they held?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "3547447.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Foreclosure",
+      "Underwriting",
+      "Loss Mitigation",
+      "Loan Processing",
+      "Quality Control",
+      "FHA",
+      "SharePoint",
+      "Excel"
+    ],
+    "expected_answer_summary": "The candidate is a Mortgage Banking Foreclosure Specialist with over 10 years of loan operations experience. They progressed from Loan Processor (2003–2008) and Loan Document Specialist II (2008–2010) to Consumer Underwriter II (2011–2013) and their current Foreclosure Specialist role (2014–present). Core skills include FHA/VA underwriting, loss mitigation, risk management, quality assurance, and proficiency in industry tools such as LPS, MSP, and SharePoint."
+  },
+  {
+    "input": "Compare the candidate in 3547447.pdf with the candidate in 10001727-2.pdf in terms of financial and operational background.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "3547447.pdf",
+      "10001727-2.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Underwriting",
+      "Auditing",
+      "Revenue Management",
+      "Quality Control",
+      "Operations"
+    ],
+    "expected_answer_summary": "The 3547447.pdf candidate is a financial services specialist with deep expertise in mortgage underwriting, loan processing, and foreclosure — all within banking. The 10001727-2.pdf candidate has operations and revenue management experience in the hospitality sector, holding an MBA from Stratford University, and is skilled in PBX, OPERA, and night-audit processes. The mortgage specialist offers deeper compliance and financial risk expertise, while the hospitality candidate brings multi-unit supervisory and revenue management strengths."
+  },
+  {
+    "input": "How many candidates in the pool have both auditing and quality assurance or quality control experience?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Auditing",
+      "Quality Assurance",
+      "Quality Control"
+    ],
+    "expected_answer_summary": "At least two candidates in the pool explicitly list auditing and quality control or quality assurance experience. The candidate in 3547447.pdf holds 3 years in compliance and quality assurance alongside mortgage auditing roles. The candidate in 10001727-2.pdf performed night audits and financial transaction auditing in a hotel operations context."
+  },
+  {
+    "input": "Find candidates with hospitality management experience and a graduate degree who have worked in revenue management.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "10001727-2.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Revenue Management",
+      "Hospitality Management",
+      "Customer Service",
+      "OPERA",
+      "PBX"
+    ],
+    "expected_answer_summary": "The candidate in 10001727-2.pdf holds a Master's in Business Administration (GPA 3.8, Magna Cum Laude) and a Bachelor's in Hospitality Management from Stratford University. They worked as Front Desk Manager handling financial transactions and revenue management, and also served as a Sous Chef and Front Desk Agent across multiple properties, bringing broad hospitality and operations experience."
+  },
+  {
+    "input": "Tell me about the Sous Chef candidate — what certifications do they hold and what is their educational background?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "10001727-2.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Certified Culinarian",
+      "TIPS Certified",
+      "CPR-AED",
+      "Food Management Professional",
+      "IHG Training",
+      "OnQ Training"
+    ],
+    "expected_answer_summary": "The candidate in 10001727-2.pdf holds a Master's in Business Administration (Magna Cum Laude), a Bachelor's in Hospitality Management, and an Associate's in Advanced Culinary Arts — all from Stratford University. Their certifications include TIPS Certified, CPR-AED, Certified Food Handler, Certified Culinarian, and Food Management Professional (State of Virginia). They have hands-on experience in culinary arts, hotel front desk operations, night auditing, and IHG Rewards program management."
+  },
+  {
+    "input": "Compare the hospitality candidate (10001727-2.pdf) and the social work candidate (10062724-6.pdf) on supervisory and management experience.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "10001727-2.pdf",
+      "10062724-6.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Supervision",
+      "Staff Management",
+      "Program Development",
+      "Performance Evaluation",
+      "Scheduling"
+    ],
+    "expected_answer_summary": "The 10001727-2.pdf candidate supervised front-of-house staff as a Shift Supervisor, conducted performance evaluations, and managed staffing for hotel properties. The 10062724-6.pdf candidate supervised a 24/7 psychiatric crisis call center, managing staff licensing, scheduling, performance indicators, and hiring/termination — a much larger scope. Both have strong supervisory credentials, but the social worker's managerial breadth in a regulated healthcare environment is significantly more extensive."
+  },
+  {
+    "input": "How many candidates in the pool have food, culinary, or restaurant-sector experience?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Culinary Arts",
+      "Food Handler",
+      "Inventory Management",
+      "POS"
+    ],
+    "expected_answer_summary": "Only one candidate in the pool has documented culinary or food-service experience. The candidate in 10001727-2.pdf worked as a Sous Chef and Prep Cook and holds certifications including Certified Culinarian and Certified Food Handler (State of Virginia). No other resumes in the pool indicate restaurant or culinary backgrounds."
+  },
+  {
+    "input": "Find candidates with 9+ years of experience in energy engineering, HVAC systems, and performance contracting.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "10041713-5.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "HVAC",
+      "Energy Conservation",
+      "Performance Contracting",
+      "SCADA",
+      "PLC",
+      "Estimating"
+    ],
+    "expected_answer_summary": "The candidate in 10041713-5.pdf has 9+ years of experience spanning energy solution consulting, HVAC estimating and design, and performance contracting for buildings and industrial facilities. Their current role as Sr. Estimator-BAS Construction Sales involves managing a $40M estimation volume year-to-date. They are certified as an Energy Management Professional by Schneider University and have worked with Honeywell, Siemens, and Schneider Electric."
+  },
+  {
+    "input": "Tell me about the Sr. Estimator candidate in 10041713-5.pdf — what projects and companies have they worked with?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "10041713-5.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "HVAC",
+      "SCADA",
+      "DCS",
+      "PLC",
+      "Energy Conservation",
+      "Energy Solutions",
+      "SQL",
+      "Studio 360"
+    ],
+    "expected_answer_summary": "The candidate in 10041713-5.pdf has worked with Honeywell (as a Project Engineer), Schneider Electric India (as Sales Engineer and Assistant Manager–Energy Solutions), and Siemens Building Technologies. In their current Sr. Estimator role in the USA, they generate approximately $2M in estimates per month on capital construction projects using Studio 360. They hold a Bachelor's in Instrumentation Engineering and received Honeywell's BRAVO Award for commissioning the Alarm Management Suite."
+  },
+  {
+    "input": "Compare the candidate in 10041713-5.pdf with the candidate in 10030015-4.pdf on technical engineering depth and domain expertise.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "10041713-5.pdf",
+      "10030015-4.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "HVAC",
+      "SCADA",
+      "PLC",
+      "LabView",
+      "Hydraulic Testing",
+      "Lean Six Sigma"
+    ],
+    "expected_answer_summary": "The 10041713-5.pdf candidate specializes in energy engineering, HVAC, and BAS construction sales, working with DCS/PLC/SCADA systems and managing multi-million dollar estimation pipelines. The 10030015-4.pdf candidate is an Engineering Lab Technician with aerospace experience, proficient in LabView, hydraulic testing, and test stand fabrication, and also completed Lean Six Sigma/5S training. The estimator has broader commercial and solutions-engineering scope; the lab technician has deeper hands-on hardware certification and testing expertise."
+  },
+  {
+    "input": "How many candidates have experience with industrial automation tools such as SCADA, PLC, or DCS?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "SCADA",
+      "PLC",
+      "DCS",
+      "Automation"
+    ],
+    "expected_answer_summary": "One candidate in the pool explicitly lists SCADA, PLC, and DCS experience. The candidate in 10041713-5.pdf worked as a Project Engineer designing, developing, and testing DCS, PLC, and SCADA programs for Honeywell systems and also lists Variable Frequency Drives and industrial automation knowledge. No other resumes in the pool reference these industrial automation technologies."
+  },
+  {
+    "input": "Find candidates with 10+ years of marketing or media experience at an educational institution who have managed advertising budgets.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "10005171-3.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Marketing",
+      "Strategic Planning",
+      "Advertising",
+      "Media Relations",
+      "Press Releases",
+      "Budget Management"
+    ],
+    "expected_answer_summary": "The candidate in 10005171-3.pdf served as Marketing Coordinator at Chattanooga State from 1996 to 2013 (17 years) and managed an advertising budget of up to $500,000 for print and electronic media. They supervised a staff of seven including graphic artists and web designers. They also received multiple National NCMPR Paragon Awards between 2010 and 2012."
+  },
+  {
+    "input": "Give me a detailed profile of the candidate in 10005171-3.pdf — focus on their media production and content creation history.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "10005171-3.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Scriptwriting",
+      "Television Production",
+      "Video Production",
+      "Radio Advertising",
+      "Website Content",
+      "Documentary"
+    ],
+    "expected_answer_summary": "The candidate in 10005171-3.pdf has a Master of Arts in Radio, Television & Motion Pictures (University of North Carolina) and completed a Writers Guild of America internship on Star Trek: Deep Space 9. They wrote scripts for TV and radio commercials, produced recruitment and instructional videos, hosted a cable television show from 1997 to 2004, and were commissioned to produce a historical documentary on African Americans in the Tennessee Legislature. Their current role as Media Activities Specialist involves organizing major campus events with notable speakers like Neil deGrasse Tyson."
+  },
+  {
+    "input": "Compare the candidate in 10005171-3.pdf with the candidate in 10001727-2.pdf on marketing and communications expertise.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "10005171-3.pdf",
+      "10001727-2.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Marketing",
+      "Branding",
+      "Customer Service",
+      "Event Planning",
+      "Advertising"
+    ],
+    "expected_answer_summary": "The 10005171-3.pdf candidate is a seasoned media and marketing professional with 20+ years in educational institutional marketing, media production, and PR — winning national NCMPR awards and managing a $500K ad budget. The 10001727-2.pdf candidate has a marketing background rooted in hotel operations, focused on promoting hotel facilities and customer service with an MBA in Business Administration. The media specialist offers far greater depth in content creation and brand communications, while the hospitality candidate offers stronger operational marketing experience."
+  },
+  {
+    "input": "How many candidates have won industry or professional awards in the pool?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Awards",
+      "Recognition",
+      "NCMPR",
+      "Paragon Award",
+      "BRAVO Award"
+    ],
+    "expected_answer_summary": "At least two candidates in the pool have documented award recognition. The candidate in 10005171-3.pdf received the NCMPR Bronze Paragon Award (2012), Silver Paragon Award (2011), and multiple 2010 District-level Gold, Silver, and Bronze Medallions. The candidate in 10041713-5.pdf received Honeywell's BRAVO Award for commissioning the Alarm Management Suite at IPCL, Baroda, and was recognized as the most interactive person across business units by Schneider."
+  },
+  {
+    "input": "Find candidates with aerospace or military background who have experience with LabView and hydraulic testing.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "10030015-4.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "LabView",
+      "Hydraulic Testing",
+      "DasyLab",
+      "Lean Six Sigma",
+      "Aerospace",
+      "FAA"
+    ],
+    "expected_answer_summary": "The candidate in 10030015-4.pdf has extensive aerospace and military experience spanning from a Munitions Systems Journeyman role in the USAF (2003–2007) to Assembly/Test Technician on Boeing 787 cargo door actuators and currently Engineering Lab Technician at an aerospace company. They are proficient in LabView and DasyLab for test automation, hydraulic and electrical test fabrication, and completed Lean Six Sigma/5S training."
+  },
+  {
+    "input": "Tell me about the Engineering Lab Technician in 10030015-4.pdf — detail their testing capabilities and certifications.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "10030015-4.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "LabView",
+      "DasyLab",
+      "Hydraulic Testing",
+      "Lean Six Sigma",
+      "Test Stand Fabrication",
+      "FAA",
+      "Munitions Systems"
+    ],
+    "expected_answer_summary": "The candidate in 10030015-4.pdf has been an Engineering Lab Technician since April 2012, currently testing seat structures for aerospace certification. They hold two Associate's degrees — in Applied Science Electronics Engineering (Forsyth Technical Community College, 2011) and Applied Science Munitions Systems Technology (Community College of the Air Force, 2007). They use LabView VI programs for test automation, fabricate and maintain hydraulic and electrical test equipment, and have prior USAF experience certifying munitions during Operation Enduring Freedom."
+  },
+  {
+    "input": "Compare candidate 10030015-4.pdf with candidate 10041713-5.pdf in terms of technical certification and engineering education.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "10030015-4.pdf",
+      "10041713-5.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Lean Six Sigma",
+      "LabView",
+      "SCADA",
+      "PLC",
+      "Energy Management Professional",
+      "Instrumentation Engineering"
+    ],
+    "expected_answer_summary": "The 10030015-4.pdf candidate holds two Associate's degrees and is a certified Lean Six Sigma practitioner with hands-on aerospace test and USAF munitions systems expertise. The 10041713-5.pdf candidate holds a Bachelor's in Instrumentation Engineering and is a certified Energy Management Professional (Schneider University), with broader commercial-scale engineering and sales experience. Both have strong technical foundations but in different engineering domains — aerospace hardware testing vs. energy systems and BAS construction."
+  },
+  {
+    "input": "How many candidates in the pool have served in the military or have defense/government work experience?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Military",
+      "USAF",
+      "Munitions",
+      "Defense",
+      "FAA"
+    ],
+    "expected_answer_summary": "One candidate in the pool has direct military service experience. The candidate in 10030015-4.pdf served as a Munitions Systems Journeyman in the USAF from 2003 to 2007, supporting aircraft during Operation Enduring Freedom and certifying small arms, actuation devices, and munitions. No other candidates in the pool reference military service or defense contracting roles."
+  },
+  {
+    "input": "Find candidates with a Master of Social Work degree and 20+ years in clinical supervision or behavioral health management.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "10062724-6.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Clinical Supervision",
+      "Psychotherapy",
+      "Crisis Intervention",
+      "Program Development",
+      "Quality Assurance"
+    ],
+    "expected_answer_summary": "The candidate in 10062724-6.pdf is a Licensed Clinical Social Worker (License LCS 18224) who earned an MSW from the University of Southern California. They have been a Behavioral Healthcare Help Line and Psychiatric Emergency Team Supervisor since July 2002 — over 20 years of clinical supervisory experience. They also ran a private psychotherapy practice for 10 years and previously served as a clinical social worker and care coordinator."
+  },
+  {
+    "input": "Give me a full profile of the clinical social worker in 10062724-6.pdf, including their training development and quality improvement accomplishments.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "10062724-6.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Epic",
+      "Clinical Supervision",
+      "Training Manual",
+      "Quality Assurance",
+      "Crisis Intervention",
+      "Biopsychosocial Assessment",
+      "DSM"
+    ],
+    "expected_answer_summary": "The candidate in 10062724-6.pdf is a seasoned LCSW who supervises a 24/7 psychiatric crisis call center, developed documentation systems that achieved 95% quality assurance scores, and authored training manuals used for staff development. They have worked across the full continuum of behavioral health care — from MSW intern and resident counselor (1987) to current supervisor — and are proficient in Epic EMR, NICE, and Symposium. They also provide expert witness testimony and hold familiarity with contract, criminal, tort, and probate law."
+  },
+  {
+    "input": "Compare the social worker (10062724-6.pdf) with the mortgage specialist (3547447.pdf) on documentation, compliance, and quality assurance strengths.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "10062724-6.pdf",
+      "3547447.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Quality Assurance",
+      "Documentation",
+      "Compliance",
+      "Quality Control",
+      "Policy and Procedures"
+    ],
+    "expected_answer_summary": "The 10062724-6.pdf candidate developed clinical documentation systems that produced 95% quality assurance scores and standardized charting across a healthcare organization, also writing and updating policies and procedures. The 3547447.pdf candidate maintained a below-3% error ratio in foreclosure processing and held a 3-year compliance and quality assurance role in mortgage banking. Both excel in documentation accuracy and compliance, but the LCSW operates at a program-design level while the mortgage specialist works at a transactional quality-control level."
+  },
+  {
+    "input": "How many candidates in the pool have experience in healthcare, behavioral health, or social services?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Clinical Social Work",
+      "Healthcare",
+      "Crisis Intervention",
+      "Psychotherapy",
+      "Clinical Operations"
+    ],
+    "expected_answer_summary": "Two candidates in the pool have documented healthcare or clinical backgrounds. The candidate in 10062724-6.pdf is a Licensed Clinical Social Worker with 30+ years in behavioral healthcare supervision, psychotherapy, and crisis intervention. The candidate in resume_04434-19.pdf (Marco Gonzalez) is a Director of Clinical Operations with 13+ years in healthcare/medicine, holding certifications in SAS, R, HIPAA, clinical trials, and FDA regulations, and working for Oracle in Hamburg."
+  },
+  {
+    "input": "Find candidates based in Helsinki with experience in quantitative analysis, Python, and financial modeling who have Databricks certification.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00698-9.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Python",
+      "Financial Modeling",
+      "DCF Analysis",
+      "Monte Carlo Simulation",
+      "LBO Modeling",
+      "SQL",
+      "Databricks Certified ML Professional"
+    ],
+    "expected_answer_summary": "Gary Garcia (resume_00698-9.pdf), located in Helsinki, Finland, holds an M.S. in Human-Computer Interaction from Imperial College London and is a Databricks Certified ML Professional. He brings extensive quantitative finance experience as a Senior Quantitative Analyst at BP (Tokyo) and earlier as an Investment Banking Analyst at Nvidia. His technical skills include Python, R, SQL, Monte Carlo Simulation, LBO Modeling, DCF Analysis, Bloomberg Terminal, and Capital IQ."
+  },
+  {
+    "input": "Tell me about Gary Garcia (resume_00698-9.pdf) — what has been his career progression and what industries has he worked in?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00698-9.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Capital IQ",
+      "Bloomberg Terminal",
+      "Risk Management",
+      "Portfolio Management",
+      "IFRS",
+      "Valuation",
+      "Excel (Advanced)"
+    ],
+    "expected_answer_summary": "Gary Garcia (resume_00698-9.pdf) progressed from Investment Banking Analyst at Nvidia (Sydney, 2012–2016) to Associate at Deloitte (New York, 2017–2021), then Senior Quantitative Analyst at BP (Tokyo, 2021–2025), and currently serves as Director at a VC-backed startup (Dublin). He has worked across investment banking, management consulting, energy, and technology startups, leveraging skills in risk management, portfolio management, financial modeling, and SQL across all roles."
+  },
+  {
+    "input": "Compare Gary Garcia (resume_00698-9.pdf) with Paula Sanchez (resume_00699-10.pdf) on their finance and investment banking profiles.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00698-9.pdf",
+      "resume_00699-10.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Investment Banking",
+      "Fixed Income",
+      "Bloomberg Terminal",
+      "Python",
+      "Portfolio Management",
+      "FactSet"
+    ],
+    "expected_answer_summary": "Gary Garcia has 10+ years across investment banking, quant analysis, and technology leadership, with a wide technical toolkit including LBO Modeling, Monte Carlo Simulation, and DCF Analysis. Paula Sanchez (resume_00699-10.pdf) has 2 years of experience as an Investment Banking Analyst at Lockheed Martin (Dublin), is based in Frankfurt, holds a CISA certification, and is fluent in German (C1). Garcia is the stronger candidate for senior quantitative or director-level roles; Sanchez is a strong early-career candidate with German language fluency and Power BI skills."
+  },
+  {
+    "input": "How many candidates in the pool are multilingual and have German language proficiency?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "German",
+      "Multilingual",
+      "Language Proficiency"
+    ],
+    "expected_answer_summary": "Four candidates in the pool have documented German language proficiency. Paula Sanchez (resume_00699-10.pdf) speaks German at C1 (Fluent) level. Rania Mansour (resume_04429-14.pdf) and Marco Gonzalez (resume_04434-19.pdf) both speak German at B2 (Advanced) level. Marie Klein (resume_04433-18.pdf) and Gary Garcia (resume_00698-9.pdf) have German at A2 (Basic) level. Additionally, Sebastian Müller (Sebastian-20.pdf) and Timo Hentsch (Timo-21.pdf) are native German speakers based in Germany."
+  },
+  {
+    "input": "Find candidates in Bangalore with legal analysis skills and certifications in cybersecurity or ethical hacking.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00696-7.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Legal Writing",
+      "Compliance",
+      "Due Diligence",
+      "OSCP",
+      "CEH",
+      "Regulatory Affairs"
+    ],
+    "expected_answer_summary": "Tola Adeleke (resume_00696-7.pdf), located in Bangalore, India, is a Legal Analyst at Uber (Miami, FL) with an M.A. in Economics from the University of Washington. They hold certifications in OSCP, CEH (Certified Ethical Hacker), Six Sigma Green Belt, and Salesforce Administrator. Their competencies span compliance, mergers and acquisitions, regulatory affairs, employment law, and contract negotiation."
+  },
+  {
+    "input": "Tell me about the legal analyst candidate in resume_00696-7.pdf — what is their professional background?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00696-7.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Legal Analysis",
+      "Compliance",
+      "Mergers & Acquisitions",
+      "Contract Negotiation",
+      "Employment Law",
+      "Due Diligence",
+      "Case Management"
+    ],
+    "expected_answer_summary": "Tola Adeleke is a Legal Analyst at Uber (Miami), having been in the role since March 2023. They hold an M.A. in Economics from the University of Washington (2023) and certifications in OSCP, CEH, Six Sigma Green Belt, and Salesforce Administrator. In their current role, they reduced delivery time from 3 days to 4 hours through task automation and coordinated with cross-functional teams of 16 members, demonstrating both legal and operational efficiency improvements."
+  },
+  {
+    "input": "Compare Tola Adeleke (resume_00696-7.pdf) with Robert Brown (resume_04430-15.pdf) on their legal and compliance backgrounds.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00696-7.pdf",
+      "resume_04430-15.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Legal Writing",
+      "Compliance",
+      "Contract Negotiation",
+      "Mergers & Acquisitions",
+      "GDPR",
+      "Due Diligence",
+      "Corporate Law"
+    ],
+    "expected_answer_summary": "Tola Adeleke is an early-career Legal Analyst with an economics background, ethical hacking certs, and skills in compliance, M&A, employment law, and regulatory affairs. Robert Brown (resume_04430-15.pdf) is a Partner with 12+ years in law and legal practice, bringing expertise in litigation, corporate law, IP law, GDPR, LexisNexis, Westlaw, e-discovery, and contract drafting. Brown is the far more senior legal candidate with broader practice area coverage, while Adeleke brings unique cross-disciplinary cybersecurity credentials."
+  },
+  {
+    "input": "How many candidates hold cybersecurity-related certifications (e.g., CEH, OSCP, CISSP, CompTIA Security+) across the entire pool?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "CEH",
+      "OSCP",
+      "CISSP",
+      "CompTIA Security+",
+      "Cybersecurity"
+    ],
+    "expected_answer_summary": "Three candidates in the pool hold cybersecurity certifications. Tola Adeleke (resume_00696-7.pdf) holds OSCP and CEH. Marie Klein (resume_04433-18.pdf) holds CompTIA Security+. Ngozi Osei (resume_04431-16.pdf) holds CISSP. Additionally, Robert Brown (resume_04430-15.pdf) holds CISA and CompTIA Security+, and Paula Sanchez (resume_00699-10.pdf) holds a CISA certification."
+  },
+  {
+    "input": "Find Cloud/DevOps intern candidates in Toronto with experience in Prometheus, AWS, and Kubernetes.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00697-8.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Prometheus",
+      "AWS",
+      "Cloudformation",
+      "Datadog",
+      "Jenkins",
+      "Kubernetes"
+    ],
+    "expected_answer_summary": "Miguel Martinez (resume_00697-8.pdf) is a Cloud/DevOps Student Intern based in Toronto, Canada, currently working as a DevOps Intern at Cisco in Stockholm. His core competencies include Prometheus, Cloudformation, Datadog, AWS, and Jenkins, and he implemented a Kubernetes migration at SAP (Amsterdam) that enabled 50K new users. He is pursuing a B.S. in Environmental Science at TU Berlin."
+  },
+  {
+    "input": "Tell me about the DevOps intern Miguel Martinez in resume_00697-8.pdf — what has he achieved in his internships?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00697-8.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Prometheus",
+      "Cloudformation",
+      "Datadog",
+      "AWS",
+      "Jenkins",
+      "Kubernetes"
+    ],
+    "expected_answer_summary": "Miguel Martinez (resume_00697-8.pdf) has accumulated hands-on cloud engineering experience across two internships. At SAP Amsterdam (2026–2028) as a Site Reliability Intern, he designed a system generating $9M in revenue and implemented Kubernetes migration enabling 50K new users. At Cisco Stockholm (2029–present) as a DevOps Intern, he delivered services exceeding KPIs by 14% and saved the team 38 hours per week through process improvements. His academic background is in Environmental Science at TU Berlin."
+  },
+  {
+    "input": "Compare Miguel Martinez (resume_00697-8.pdf) with Ngozi Osei (resume_04431-16.pdf) on their DevOps and cloud infrastructure experience.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00697-8.pdf",
+      "resume_04431-16.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Prometheus",
+      "Terraform",
+      "CI/CD",
+      "Jenkins"
+    ],
+    "expected_answer_summary": "Miguel Martinez is an early-career DevOps intern with strong cloud monitoring skills (Prometheus, Datadog, Cloudformation, Jenkins, AWS) and two impactful internship stints. Ngozi Osei (resume_04431-16.pdf) is a Senior DevOps Engineer at Deutsche Bank with 10+ years of experience, skills in Azure, Python, Docker, Terraform, ELK Stack, and Pulumi, holding CISSP and PMP certifications. Osei is significantly more senior with production-scale cloud infrastructure experience across Allianz and Deutsche Bank; Martinez is a strong entry-level candidate with SRE internship depth."
+  },
+  {
+    "input": "How many candidates in the pool have cloud or DevOps skills including AWS, Azure, GCP, or Docker?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "Cloud Infrastructure"
+    ],
+    "expected_answer_summary": "At least five candidates in the pool have cloud or DevOps-related skills. Miguel Martinez (resume_00697-8.pdf) lists AWS, Datadog, Cloudformation, and Jenkins. Ngozi Osei (resume_04431-16.pdf) lists Azure, AWS, Docker, Terraform, Cloudformation, and Pulumi. Deepak Patel (resume_00701-12.pdf) lists GCP, GitHub Actions, and CI/CD. Priya Verma (resume_04432-17.pdf) lists GCP, Kubernetes, Docker, and Terraform. Marie Klein (resume_04433-18.pdf) lists Cloud Security broadly alongside SIEM and SOAR tooling."
+  },
+  {
+    "input": "Find Finance candidates based in Frankfurt who speak German at C1 level and have Power BI and Bloomberg Terminal experience.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00699-10.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Power BI",
+      "Bloomberg Terminal",
+      "Fixed Income",
+      "Python",
+      "FactSet",
+      "IFRS",
+      "Portfolio Management"
+    ],
+    "expected_answer_summary": "Paula Sanchez (resume_00699-10.pdf) is a Finance and Banking specialist based in Frankfurt, Germany, fluent in German (C1). She works as an Investment Banking Analyst at Lockheed Martin (Dublin) since September 2024, holding a B.S. in Physics from Georgia Tech (2023). Her skills include Power BI, Fixed Income, Bloomberg Terminal, FactSet, Python, VBA, IFRS, and Portfolio Management, and she holds a CISA certification."
+  },
+  {
+    "input": "Tell me about Paula Sanchez (resume_00699-10.pdf) — what are her key achievements and certifications?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00699-10.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Power BI",
+      "Fixed Income",
+      "Bloomberg Terminal",
+      "CISA",
+      "Python",
+      "VBA",
+      "Portfolio Management"
+    ],
+    "expected_answer_summary": "Paula Sanchez is a 2-year finance professional currently at Lockheed Martin as an Investment Banking Analyst. She was recognized as a top performer in Q2 2025 and achieved a 40% improvement in churn rate through portfolio rebalancing. She graduated with a B.S. in Physics from Georgia Tech in 2023, holds CISA certification, and is fluent in five languages — Swedish (Native), French (Native), English (Fluent), German (C1), and Dutch (Intermediate)."
+  },
+  {
+    "input": "Compare Paula Sanchez (resume_00699-10.pdf) with Rania Mansour (resume_04429-14.pdf) on finance experience and language skills for roles in Germany.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00699-10.pdf",
+      "resume_04429-14.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Portfolio Management",
+      "Fixed Income",
+      "Financial Modeling",
+      "Python",
+      "German",
+      "VBA",
+      "FactSet"
+    ],
+    "expected_answer_summary": "Paula Sanchez has 2 years of experience with strong quantitative skills (Power BI, Bloomberg Terminal, FactSet) and C1 German, based in Frankfurt. Rania Mansour (resume_04429-14.pdf) is also based in Frankfurt with 5 years of experience as a Quantitative Analyst, deeper skills in LBO Modeling, Derivatives, and Financial Modeling, and B2 German. Mansour has more seniority and broader modeling depth; Sanchez brings stronger language credentials (C1 German vs B2) and a CISA certification."
+  },
+  {
+    "input": "How many candidates in the pool are currently based in Germany or have work authorization indicators for Germany?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Germany",
+      "Frankfurt",
+      "Berlin",
+      "Hamburg",
+      "German"
+    ],
+    "expected_answer_summary": "Three candidates explicitly list current German addresses: Paula Sanchez and Rania Mansour are both based in Frankfurt, Germany. Sebastian Müller (Sebastian-20.pdf) is based in Münster (Lingen area) and Timo Hentsch (Timo-21.pdf) lists Germany as their location. Marco Gonzalez (resume_04434-19.pdf) currently works at Oracle in Hamburg, though his listed address is Prague. Additionally, Marie Klein worked at Vanguard in Berlin, and several candidates have German language proficiency as noted in their resumes."
+  },
+  {
+    "input": "Find consulting intern candidates in Los Angeles with AWS ML certification and experience at a major financial firm.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00700-11.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "AWS Certified Machine Learning",
+      "Strategy Consulting",
+      "Financial Modeling",
+      "Six Sigma",
+      "McKinsey Problem Solving"
+    ],
+    "expected_answer_summary": "Ankit Nair (resume_00700-11.pdf) is a Consulting Student Intern based in Los Angeles, CA, currently interning at Morgan Stanley (San Francisco) since December 2023. They hold an AWS Certified Machine Learning – Specialty certification and their skills include Six Sigma, McKinsey Problem Solving, Strategy Consulting, Financial Modeling, and Stakeholder Management. They are pursuing a B.A. in Marketing from TU Berlin and an M.S. in Computer Science from Georgia Tech."
+  },
+  {
+    "input": "Tell me about the consulting intern in resume_00700-11.pdf — what is their educational background and key skills?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00700-11.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Six Sigma",
+      "McKinsey Problem Solving",
+      "Financial Modeling",
+      "SWOT Analysis",
+      "AWS Certified Machine Learning",
+      "PowerPoint"
+    ],
+    "expected_answer_summary": "Ankit Nair (resume_00700-11.pdf) is a 1+ year consulting professional interning at Morgan Stanley in San Francisco, where they streamlined CI/CD workflows reducing manual effort by 57% and saved 52 engineering hours per month. They are pursuing dual degrees — a B.A. in Marketing from TU Berlin and an M.S. in Computer Science from Georgia Tech (expected 2029). Their core skills span strategy consulting, financial modeling, six sigma, SWOT analysis, and AWS ML, with multilingual fluency in English, Portuguese, and Arabic."
+  },
+  {
+    "input": "Compare Ankit Nair (resume_00700-11.pdf) with Ankit Gupta (resume_00702-13.pdf) — both are interns; which is a stronger candidate for an operations or consulting role?",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00700-11.pdf",
+      "resume_00702-13.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Strategy Consulting",
+      "Supply Chain Management",
+      "Financial Modeling",
+      "SQL",
+      "Six Sigma",
+      "SCOR Framework"
+    ],
+    "expected_answer_summary": "Ankit Nair (resume_00700-11.pdf) is a consulting intern at Morgan Stanley with skills in financial modeling, McKinsey problem solving, six sigma, and AWS ML certification. Ankit Gupta (resume_00702-13.pdf) is an Operations/Logistics intern at Asana (Vancouver) with skills in SQL, Supply Chain Management, SCOR Framework, and Lean Six Sigma, pursuing a B.S. in Information Systems. For a consulting role, Nair is stronger; for an operations or supply chain role, Gupta is the better fit."
+  },
+  {
+    "input": "How many candidates in the pool are current students or interns with less than 2 years of professional experience?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Intern",
+      "Student",
+      "Entry Level"
+    ],
+    "expected_answer_summary": "Three candidates in the pool are identified as student interns or have 0–2 years of professional experience. Ankit Nair (resume_00700-11.pdf) is a 1+ year consulting intern at Morgan Stanley pursuing dual degrees. Ankit Gupta (resume_00702-13.pdf) explicitly states 0 years of hands-on experience and is an operations intern at Asana. Miguel Martinez (resume_00697-8.pdf) is also categorized as a Student Intern in Cloud/DevOps at Cisco. Paula Sanchez (resume_00699-10.pdf) has 2 years of experience as an Investment Banking Analyst."
+  },
+  {
+    "input": "Find senior software engineers in Dubai with 10+ years of experience in Python, Rust, and cloud-native microservices architectures.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00701-12.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Python",
+      "Rust",
+      "Terraform",
+      "Microservices",
+      "PostgreSQL",
+      "GCP",
+      "CI/CD",
+      "GraphQL",
+      "gRPC"
+    ],
+    "expected_answer_summary": "Deepak Patel (resume_00701-12.pdf) is a Senior Software Engineer based in Dubai with 10+ years of experience. Currently a Senior Developer at Datadog (Seoul), he previously worked at Volkswagen (Zurich) and PwC (London). He holds AWS Certified Solutions Architect – Professional and CISM certifications, with a deep technical stack including Rust, Python, Terraform, Spring Boot, Django, Node.js, MongoDB, PostgreSQL, GCP, GraphQL, gRPC, and CI/CD pipelines."
+  },
+  {
+    "input": "Tell me about Deepak Patel (resume_00701-12.pdf) in detail — cover his entire career history and certifications.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00701-12.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Rust",
+      "Terraform",
+      "Python",
+      "Microservices",
+      "GCP",
+      "GitHub Actions",
+      "AWS Certified Solutions Architect",
+      "CISM",
+      "MongoDB",
+      "PostgreSQL"
+    ],
+    "expected_answer_summary": "Deepak Patel (resume_00701-12.pdf) holds a B.S. in Data Science and M.S. in Biomedical Engineering from UC Berkeley (2015 and 2017). He began as a Junior Software Developer at PwC London (2015–2018), moved to Software Engineer at Volkswagen Zurich (2018–2022), and is currently a Senior Developer at Datadog Seoul (2022–present), where he mentored 6 junior engineers and reduced costs by $10M. He is AWS Certified Solutions Architect – Professional and CISM certified."
+  },
+  {
+    "input": "Compare Deepak Patel (resume_00701-12.pdf) with Priya Verma (resume_04432-17.pdf) on their senior software engineering profiles.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00701-12.pdf",
+      "resume_04432-17.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Rust",
+      "Python",
+      "GCP",
+      "Kubernetes",
+      "Docker",
+      "Terraform",
+      "Spring Boot",
+      "Redis",
+      "Kafka",
+      "CI/CD"
+    ],
+    "expected_answer_summary": "Deepak Patel (resume_00701-12.pdf) is a Senior Developer at Datadog with 10+ years, specializing in backend languages (Rust, Python, Go) and cloud-native architectures with GCP, GraphQL, and gRPC. He holds AWS Solutions Architect – Professional and CISM certifications. Priya Verma (resume_04432-17.pdf) also has 12 years of software engineering experience, currently a Senior Developer at Apple (Singapore), with strengths in Rust, Redis, Kafka, Kubernetes, Docker, and Java, holding Microsoft Azure AI Engineer Associate certification. Both are top-tier senior engineers; Patel leans toward backend systems and cloud security, Verma toward distributed systems and Kubernetes orchestration."
+  },
+  {
+    "input": "How many candidates in the pool have 10 or more years of software engineering experience?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Software Engineering",
+      "Senior",
+      "10+ years"
+    ],
+    "expected_answer_summary": "Two candidates in the pool are explicitly described as having 10+ years of software engineering experience. Deepak Patel (resume_00701-12.pdf) is described as Senior with 10+ years, and Priya Verma (resume_04432-17.pdf) states 12 years of hands-on software engineering experience. Gary Garcia (resume_00698-9.pdf) also has a lengthy career spanning 2012 to present across investment banking and technology leadership roles."
+  },
+  {
+    "input": "Find senior legal candidates in Brussels with 12+ years of experience in corporate law, M&A, and GDPR compliance.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_04430-15.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Corporate Law",
+      "Mergers & Acquisitions",
+      "GDPR",
+      "Litigation",
+      "IP Law",
+      "Contract Drafting",
+      "LexisNexis",
+      "Westlaw"
+    ],
+    "expected_answer_summary": "Robert Brown (resume_04430-15.pdf) is a Partner based in Brussels, Belgium, with 12+ years in law and legal services. He holds an M.S. in Finance from the University of Stuttgart (2012) and his legal expertise spans litigation, M&A, due diligence, corporate law, IP law, GDPR, contract negotiation, e-discovery, and employment law. He has worked at EY (Dubai) as Contract Manager, Twitter/X (Mumbai) as Senior Associate, and currently as Partner at a SaaS Startup in Dubai."
+  },
+  {
+    "input": "Tell me about Robert Brown (resume_04430-15.pdf) — what firms has he worked at and what legal specializations does he have?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_04430-15.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Litigation",
+      "GDPR",
+      "IP Law",
+      "Corporate Law",
+      "Westlaw",
+      "LexisNexis",
+      "Contract Negotiation",
+      "E-Discovery",
+      "GAAP"
+    ],
+    "expected_answer_summary": "Robert Brown (resume_04430-15.pdf) started as Contract Manager at EY Dubai (2014–2018), moved to Senior Associate at Twitter/X Mumbai (2018–2022), and is now Partner at a SaaS Startup in Dubai (2023–present). His legal practice covers the full spectrum from contract drafting and compliance to GDPR, M&A due diligence, IP law, and e-discovery. He also holds CISA and CompTIA Security+ certifications and speaks Dutch (Native), Mandarin Chinese (Fluent), and English (Fluent)."
+  },
+  {
+    "input": "Compare Robert Brown (resume_04430-15.pdf) with Tola Adeleke (resume_00696-7.pdf) for a senior legal counsel position focused on international M&A.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_04430-15.pdf",
+      "resume_00696-7.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Mergers & Acquisitions",
+      "Due Diligence",
+      "Contract Negotiation",
+      "Regulatory Affairs",
+      "Compliance",
+      "Legal Research"
+    ],
+    "expected_answer_summary": "Robert Brown is a Partner-level attorney with 12+ years, in-depth experience in M&A, IP law, GDPR, corporate law, and cross-border legal work across Dubai, Mumbai, and Brussels. Tola Adeleke is an early-career Legal Analyst with 3 years at Uber focused on compliance, employment law, and contract negotiation, augmented by cybersecurity certifications (OSCP, CEH). For senior international M&A counsel, Brown is the clear choice due to seniority and breadth; Adeleke brings cross-disciplinary value for roles requiring legal-tech or regulatory compliance skills."
+  },
+  {
+    "input": "How many candidates have experience in international or multi-jurisdictional legal or compliance work?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "GDPR",
+      "Regulatory Affairs",
+      "Compliance",
+      "International",
+      "Employment Law"
+    ],
+    "expected_answer_summary": "At least three candidates in the pool have international or multi-jurisdictional legal/compliance backgrounds. Robert Brown (resume_04430-15.pdf) worked across Dubai, Mumbai, and Brussels in corporate law and GDPR-related compliance. Tola Adeleke (resume_00696-7.pdf) handles regulatory affairs and employment law at Uber across multiple jurisdictions. Marie Klein (resume_04433-18.pdf) implemented SOC 2 compliance and zero-trust architecture across global teams at JP Morgan Chase and Spotify."
+  },
+  {
+    "input": "Find Senior Software Engineers in Denver with PhD education, Kubernetes and Kafka experience, and Azure AI certifications.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_04432-17.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Kubernetes",
+      "Kafka",
+      "Rust",
+      "Redis",
+      "Docker",
+      "Terraform",
+      "GCP",
+      "Microsoft Azure AI Engineer Associate"
+    ],
+    "expected_answer_summary": "Priya Verma (resume_04432-17.pdf) is a Senior Software Engineer based in Denver, CO, with 12 years of hands-on experience and a Ph.D. in Operations Research from UC Berkeley (2012). She is a Microsoft Azure AI Engineer Associate and ITIL Foundation certified. Her technical stack includes Rust, Redis, GCP, Kubernetes, MongoDB, Jenkins, Spring Boot, Kafka, Docker, Terraform, and REST APIs. She is currently a Senior Developer at Apple in Singapore."
+  },
+  {
+    "input": "Give me a full profile of Priya Verma (resume_04432-17.pdf) — experience, education, and key achievements.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_04432-17.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Rust",
+      "Kubernetes",
+      "Docker",
+      "Terraform",
+      "Redis",
+      "GCP",
+      "Kafka",
+      "Jenkins",
+      "CI/CD",
+      "Microsoft Azure AI Engineer Associate"
+    ],
+    "expected_answer_summary": "Priya Verma (resume_04432-17.pdf) has a Ph.D. from UC Berkeley and 12 years in software engineering, progressing from Software Developer I at Target (Sydney, 2014–2018) to Software Engineer at Barclays (Seattle, 2019–2023) to Senior Developer at Apple (Singapore, 2024–present). She automated a reporting pipeline saving 40 engineering hours per week at Barclays, mentored 5 junior engineers at Target, and reduced memory usage significantly at Apple. Her GitHub profile is github.com/priya23."
+  },
+  {
+    "input": "Compare Priya Verma (resume_04432-17.pdf) with Ngozi Osei (resume_04431-16.pdf) on cloud infrastructure and DevOps capabilities for a platform engineering role.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_04432-17.pdf",
+      "resume_04431-16.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "AWS",
+      "Azure",
+      "GCP",
+      "CI/CD",
+      "Jenkins",
+      "Service Mesh"
+    ],
+    "expected_answer_summary": "Priya Verma specializes in software engineering with cloud deployment skills including GCP, Kubernetes, Docker, Terraform, and Jenkins, with deep experience at Apple and Barclays. Ngozi Osei is a Senior DevOps Engineer with Azure, Python, Docker, Terraform, Pulumi, ELK Stack, and Service Mesh expertise, with a CISSP certification and PMP project management credential, having worked at Deutsche Bank and Allianz. Osei is the stronger pick for a pure DevOps/SRE platform role; Verma is better suited for a full-stack or backend-heavy platform engineering position."
+  },
+  {
+    "input": "How many candidates in the pool hold a PhD or doctoral degree?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "PhD",
+      "Doctoral",
+      "Research"
+    ],
+    "expected_answer_summary": "Three candidates in the pool hold doctoral degrees. Priya Verma (resume_04432-17.pdf) holds a Ph.D. in Operations Research from UC Berkeley. Timo Hentsch (Timo-21.pdf) holds a Dr. rer. nat. in Physics from Leibniz Universität Hannover and was also a Harvard Research Fellow. Sebastian Müller (Sebastian-20.pdf) holds a Ph.D. from Universität Hamburg. The pool thus has significant research-level talent in physics, engineering, and operations."
+  },
+  {
+    "input": "Find CISO-level or VP of Security candidates with penetration testing, SIEM, and cloud security expertise.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_04433-18.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Penetration Testing",
+      "SIEM",
+      "Cloud Security",
+      "SOC 2",
+      "Splunk",
+      "SOAR",
+      "Forensics",
+      "Identity Management"
+    ],
+    "expected_answer_summary": "Marie Klein (resume_04433-18.pdf) is a cybersecurity executive based in Denver, CO, currently serving as VP of Security at Spotify in Copenhagen. Her expertise covers penetration testing, forensics, cloud security, SIEM, SOAR, Splunk, SOC 2, network security, and identity management. She holds Google Cloud Professional ML Engineer, CompTIA Security+, Databricks Certified ML Professional, and CMA certifications, and has worked at JP Morgan Chase, Vanguard, Canva, and Twilio."
+  },
+  {
+    "input": "Tell me about Marie Klein (resume_04433-18.pdf) in detail — her full career, certifications, and key security accomplishments.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_04433-18.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "SIEM",
+      "Splunk",
+      "Penetration Testing",
+      "Cloud Security",
+      "Nmap",
+      "Forensics",
+      "Firewall Management",
+      "SOAR",
+      "Network Security",
+      "CompTIA Security+"
+    ],
+    "expected_answer_summary": "Marie Klein (resume_04433-18.pdf) has been in cybersecurity for over 15 years. She progressed from Penetration Testing Intern at Johnson & Johnson (Vienna) to Security Operations Analyst at Twilio (Dubai), Security Analyst at Canva (New York), Senior Penetration Tester at Vanguard (Berlin), Principal Security Engineer at JP Morgan Chase (Chicago), and now VP of Security at Spotify (Copenhagen). She holds an M.S. in Human-Computer Interaction from the National University of Singapore and four professional certifications."
+  },
+  {
+    "input": "Compare Marie Klein (resume_04433-18.pdf) with Ngozi Osei (resume_04431-16.pdf) for a Head of Security or Lead DevSecOps position.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_04433-18.pdf",
+      "resume_04431-16.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "SIEM",
+      "Splunk",
+      "CISSP",
+      "Penetration Testing",
+      "Cloud Security",
+      "Terraform",
+      "Docker",
+      "Azure",
+      "SOAR"
+    ],
+    "expected_answer_summary": "Marie Klein is a VP-level cybersecurity executive with 15+ years specializing in penetration testing, SIEM, cloud security, SOAR, and SOC 2, currently at Spotify. Ngozi Osei is a Senior DevOps Engineer at Deutsche Bank with CISSP certification, strong in CI/CD security, observability stacks, and Kubernetes. Klein is the clear choice for a Head of Security role requiring threat detection, forensics, and security leadership; Osei is better suited for a DevSecOps lead role that bridges platform engineering and security."
+  },
+  {
+    "input": "How many candidates in the pool have experience in both cybersecurity and machine learning or AI?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Cybersecurity",
+      "Machine Learning",
+      "Databricks Certified ML Professional",
+      "Google Cloud Professional ML Engineer",
+      "AWS Certified Machine Learning"
+    ],
+    "expected_answer_summary": "Three candidates demonstrate overlap between cybersecurity and machine learning skills. Marie Klein (resume_04433-18.pdf) holds both Google Cloud Professional ML Engineer and Databricks Certified ML Professional certifications alongside CompTIA Security+. Ankit Nair (resume_00700-11.pdf) holds AWS Certified Machine Learning – Specialty while interning at Morgan Stanley in a consulting role. Gary Garcia (resume_00698-9.pdf) holds Databricks Certified ML Professional alongside financial modeling and risk management skills."
+  },
+  {
+    "input": "Find Finance candidates in Frankfurt with 5 years of quantitative analysis experience, Python, LBO modeling, and German B2 proficiency.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_04429-14.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Portfolio Management",
+      "Valuation",
+      "Financial Modeling",
+      "LBO Modeling",
+      "Fixed Income",
+      "Derivatives",
+      "Python",
+      "VBA"
+    ],
+    "expected_answer_summary": "Rania Mansour (resume_04429-14.pdf) is a Finance and Banking specialist based in Frankfurt, Germany, with 5 years of quantitative analysis experience. Currently a Quantitative Analyst at a Series A Startup in Paris (since September 2021), she brings skills in Portfolio Management, Valuation, Financial Modeling, LBO Modeling, Fixed Income, Derivatives, FactSet, Risk Management, Python, and VBA. She speaks German at B2 (Advanced) level and holds CMA, Google Cloud Professional Data Engineer, and HubSpot Content Marketing certifications."
+  },
+  {
+    "input": "Tell me about Rania Mansour (resume_04429-14.pdf) — what is her educational background and what certifications does she hold?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_04429-14.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Portfolio Management",
+      "LBO Modeling",
+      "Python",
+      "VBA",
+      "FactSet",
+      "Risk Management",
+      "CMA"
+    ],
+    "expected_answer_summary": "Rania Mansour (resume_04429-14.pdf) earned a B.A. in Psychology from Florida State University in 2020, then pivoted into quantitative finance. She is currently a Quantitative Analyst at a Series A Startup in Paris since September 2021. She holds CMA, Google Cloud Professional Data Engineer, and HubSpot Content Marketing certifications. Her language portfolio is notably diverse: Korean (Native), French (Fluent), English (Fluent), and German (B2 Advanced), making her well suited for international finance roles."
+  },
+  {
+    "input": "Compare Rania Mansour (resume_04429-14.pdf) with Gary Garcia (resume_00698-9.pdf) for a senior quantitative or portfolio management role.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_04429-14.pdf",
+      "resume_00698-9.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Portfolio Management",
+      "LBO Modeling",
+      "Monte Carlo Simulation",
+      "Risk Management",
+      "Python",
+      "FactSet",
+      "Bloomberg Terminal",
+      "DCF Analysis"
+    ],
+    "expected_answer_summary": "Rania Mansour has 5 years of quant finance experience with strengths in LBO modeling, derivatives, valuation, and FactSet, based in Frankfurt with B2 German. Gary Garcia has 10+ years across investment banking, quant analysis (Monte Carlo, DCF, Capital IQ), and technology leadership at Deloitte and BP, now directing a VC startup. Garcia is the more senior and technically diverse candidate; Mansour is a strong mid-level quant with superior European language and geography fit."
+  },
+  {
+    "input": "How many candidates in the pool have financial modeling and valuation skills combined with programming (Python or R)?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Financial Modeling",
+      "Valuation",
+      "Python",
+      "R",
+      "VBA"
+    ],
+    "expected_answer_summary": "At least four candidates combine financial modeling or valuation skills with programming languages. Gary Garcia (resume_00698-9.pdf) lists Financial Modeling, Valuation, DCF Analysis, LBO Modeling alongside Python and R. Rania Mansour (resume_04429-14.pdf) lists Financial Modeling, Valuation, LBO Modeling, Derivatives alongside Python and VBA. Paula Sanchez (resume_00699-10.pdf) lists Portfolio Management and Fixed Income alongside Python and VBA. Marco Gonzalez (resume_04434-19.pdf) lists Biostatistics and clinical data analytics alongside R, Python, and SAS."
+  },
+  {
+    "input": "Find Senior DevOps Engineers in Toronto with Azure, Docker, Terraform, and a CISSP certification who have experience at a major bank.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_04431-16.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Azure",
+      "Docker",
+      "Terraform",
+      "Python",
+      "Kubernetes",
+      "CISSP",
+      "ELK Stack",
+      "Jenkins"
+    ],
+    "expected_answer_summary": "Ngozi Osei (resume_04431-16.pdf) is a Senior DevOps Engineer based in Toronto, Canada, currently at Deutsche Bank (Atlanta, GA) since November 2023. They hold CISSP, PMP, and LinkedIn Marketing Labs certifications and an M.S. in Electrical Engineering from EPFL (2013). Their skills include Azure, Python, Docker, Terraform, Pulumi, Istio, Datadog, Cloudformation, ELK Stack, Jenkins, Linux, AWS, and Service Mesh — with Kubernetes migration experience at Allianz delivering 40% API response time improvement."
+  },
+  {
+    "input": "Give me a detailed profile of Ngozi Osei (resume_04431-16.pdf) — all roles, achievements, and technical depth.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_04431-16.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Pulumi",
+      "ELK Stack",
+      "Datadog",
+      "Jenkins",
+      "Service Mesh",
+      "CISSP",
+      "PMP"
+    ],
+    "expected_answer_summary": "Ngozi Osei (resume_04431-16.pdf) has 10+ years of DevOps and platform engineering experience. They began as Junior DevOps Engineer at Cisco Budapest (2014–2018), progressed to Platform Engineer at Allianz Vancouver (2018–2022), and are now Senior DevOps Engineer at Deutsche Bank Atlanta (2023–present), where they spearheaded a dashboard rollout impacting 5M users across 5 regions. Their EPFL M.S. in Electrical Engineering provides strong foundational engineering depth, and they are fluent in Dutch (Native) and Swedish (Fluent)."
+  },
+  {
+    "input": "Compare Ngozi Osei (resume_04431-16.pdf) with Miguel Martinez (resume_00697-8.pdf) in terms of readiness for a Senior Site Reliability Engineer role.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_04431-16.pdf",
+      "resume_00697-8.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Kubernetes",
+      "Prometheus",
+      "Datadog",
+      "AWS",
+      "Azure",
+      "Terraform",
+      "Service Mesh",
+      "Cloudformation"
+    ],
+    "expected_answer_summary": "Ngozi Osei is a Senior DevOps Engineer with 10+ years, CISSP and PMP certified, experienced in full-scale production deployments at Deutsche Bank and Allianz using Azure, Terraform, Pulumi, and ELK Stack. Miguel Martinez is an entry-level DevOps intern with AWS, Prometheus, and Datadog skills and two internship stints at SAP and Cisco. Osei is significantly more ready for a Senior SRE role; Martinez is a solid candidate for a junior or associate SRE position."
+  },
+  {
+    "input": "How many candidates have both Python and cloud infrastructure skills (at least one of AWS, Azure, or GCP)?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Python",
+      "AWS",
+      "Azure",
+      "GCP"
+    ],
+    "expected_answer_summary": "At least five candidates combine Python with at least one major cloud platform. Deepak Patel (resume_00701-12.pdf) lists Python and GCP. Priya Verma (resume_04432-17.pdf) lists Python-adjacent GCP, Kubernetes, and Docker skills. Ngozi Osei (resume_04431-16.pdf) lists Python, Azure, and AWS. Marco Gonzalez (resume_04434-19.pdf) lists Python alongside Google Cloud Professional Data Engineer and AWS Certified Machine Learning certifications. Rania Mansour (resume_04429-14.pdf) lists Python alongside Google Cloud Professional Data Engineer certification."
+  },
+  {
+    "input": "Find Director-level candidates with 13+ years in healthcare operations, clinical trials expertise, and based in or working in Germany.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_04434-19.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Clinical Trials",
+      "HIPAA",
+      "FDA Regulations",
+      "Biostatistics",
+      "CDISC",
+      "SAS",
+      "Veeva",
+      "Medidata Rave"
+    ],
+    "expected_answer_summary": "Marco Gonzalez (resume_04434-19.pdf) is a Director of Clinical Operations with 13+ years in healthcare and medicine, currently working at Oracle in Hamburg, Germany. He holds an M.S. in Computer Science from TU Munich (2012) and certifications in Google Analytics, Google Cloud Professional Data Engineer, and AWS Certified Machine Learning – Specialty. His skills span clinical trials, HIPAA, FDA regulations, biostatistics, CDISC, SAS, Medidata Rave, REDCap, HL7, FHIR, and epidemiology."
+  },
+  {
+    "input": "Tell me about Marco Gonzalez (resume_04434-19.pdf) — give a full profile including his clinical data and regulatory experience.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_04434-19.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Clinical Trials",
+      "Biostatistics",
+      "SAS",
+      "R",
+      "Python",
+      "FHIR",
+      "CDISC",
+      "ICH Guidelines",
+      "Epidemiology",
+      "Veeva",
+      "Medidata Rave"
+    ],
+    "expected_answer_summary": "Marco Gonzalez (resume_04434-19.pdf) progressed from Clinical Research Coordinator at McKinsey & Company Paris (2013–2017) to Senior Biostatistician at Notion Milan (2018–2023) to Director of Clinical Operations at Oracle Hamburg (2023–present). At Notion, he implemented Grafana monitoring improving incident response time by 60% and supported 200K concurrent users. He is fluent in Japanese (Native), Spanish (Fluent), and German (B2 Advanced) and holds three cloud/analytics certifications alongside deep regulatory knowledge."
+  },
+  {
+    "input": "Compare Marco Gonzalez (resume_04434-19.pdf) with the social worker candidate (10062724-6.pdf) for a healthcare leadership role requiring both clinical expertise and data analytics.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_04434-19.pdf",
+      "10062724-6.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Clinical Operations",
+      "Biostatistics",
+      "Crisis Intervention",
+      "SAS",
+      "R",
+      "HIPAA",
+      "Quality Assurance",
+      "Program Development"
+    ],
+    "expected_answer_summary": "Marco Gonzalez brings deep healthcare data analytics skills — biostatistics, SAS, R, Python, CDISC, FHIR, FDA compliance — alongside clinical trials and operations management across Oracle and McKinsey. The 10062724-6.pdf LCSW candidate brings clinical supervision, psychotherapy expertise, behavioral health program development, and 30+ years of hands-on care coordination, but lacks formal data analytics capabilities. For a data-driven healthcare leadership role, Gonzalez is stronger; for a clinical program management or behavioral health leadership role, the LCSW candidate is the better fit."
+  },
+  {
+    "input": "How many candidates in the pool have R or SAS statistical programming skills, relevant to research or biostatistics roles?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "R",
+      "SAS",
+      "Biostatistics",
+      "SPSS",
+      "Statistical Analysis"
+    ],
+    "expected_answer_summary": "Two candidates in the pool explicitly list R and SAS skills relevant to research or biostatistics. Marco Gonzalez (resume_04434-19.pdf) lists R, SAS, SPSS, and Python alongside clinical biostatistics skills including CDISC, ICH Guidelines, Epidemiology, and Medidata Rave. Gary Garcia (resume_00698-9.pdf) lists R alongside Python and quantitative finance skills including Monte Carlo Simulation. No other resumes in the pool explicitly mention R or SAS in their skills sections."
+  },
+  {
+    "input": "Find research scientists in Germany with a PhD in Physics, nanotechnology expertise, and publications in quantum physics.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "Timo-21.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Nanotechnology",
+      "Physics",
+      "Nondestructive Testing",
+      "Scientific Research",
+      "Analytical Skills"
+    ],
+    "expected_answer_summary": "Timo Hentsch (Timo-21.pdf) is a Scientist specializing in nondestructive testing based in Germany, currently at Rosenxt Group since September 2023. He holds a Dr. rer. nat. in Physics from Leibniz Universität Hannover and a Diplom-Ingenieur in Nanotechnology from Julius-Maximilians-Universität Würzburg, and was a Harvard University Research Fellow (2011–2012). He has five peer-reviewed publications in quantum transport, quantum dots, and shot noise in quantum systems."
+  },
+  {
+    "input": "Give me a full profile of Timo Hentsch (Timo-21.pdf) — his research background, publications, and career timeline.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "Timo-21.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Nanotechnology",
+      "Nondestructive Testing",
+      "Physics",
+      "Analytical Skills",
+      "Scientific Writing"
+    ],
+    "expected_answer_summary": "Timo Hentsch (Timo-21.pdf) has a distinguished research career: after a Nanotechnology degree from Würzburg and a Physics doctorate from Hannover (2013–2018), he was a Wissenschaftlicher Mitarbeiter at Leibniz Universität Hannover for nearly 6 years and a Harvard Research Fellow for one year. He joined ROSEN in 2018 as Scientist in Lingen, Germany, and transitioned to Rosenxt Group in 2023. His five publications cover quantum transport, Hund's rule interactions, shot noise control, and superconductivity in quantum spin Hall systems. He is a native German speaker with Full Professional English."
+  },
+  {
+    "input": "Compare Timo Hentsch (Timo-21.pdf) and Sebastian Müller (Sebastian-20.pdf) for a senior R&D leadership role at a technology company in Germany.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "Timo-21.pdf",
+      "Sebastian-20.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Nanotechnology",
+      "Photonics",
+      "Business Development",
+      "Consulting",
+      "Nondestructive Testing",
+      "CTO",
+      "Research"
+    ],
+    "expected_answer_summary": "Timo Hentsch (Timo-21.pdf) is a research-first scientist with a Physics doctorate, Harvard fellowship, five quantum physics publications, and ongoing NDT research at Rosenxt Group. Sebastian Müller (Sebastian-20.pdf) holds a Ph.D. from Universität Hamburg, an M.S. in Photonics, and a Diplom-Ingenieur in Laser Technology, and is currently CTO of Rosenxt Group with 9+ years at ROSEN — including Head of Technology Platform. Müller is the stronger candidate for a strategic R&D leadership or CTO-type role; Hentsch is the better fit for a principal scientist or deep-research position."
+  },
+  {
+    "input": "How many candidates in the pool have academic research experience (university positions, fellowships, or publications)?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Research",
+      "Publications",
+      "Fellowship",
+      "University",
+      "Academia"
+    ],
+    "expected_answer_summary": "Two candidates have explicit academic research experience. Timo Hentsch (Timo-21.pdf) was a Wissenschaftlicher Mitarbeiter at Leibniz Universität Hannover for nearly 6 years, a Harvard Research Fellow for 1 year, and has 5 peer-reviewed publications in quantum physics. Sebastian Müller (Sebastian-20.pdf) completed a Ph.D. at Universität Hamburg and holds advanced degrees in Photonics and Laser Technology from Fachhochschule Münster, though no academic position post-doctorate is listed. The 10062724-6.pdf candidate also has documented academic teaching as Behavioral Science Faculty in a Family Practice Residency Program from 1992 to 1996."
+  },
+  {
+    "input": "Find CTO-level candidates in the Münster region of Germany with a PhD and background in photonics or optical engineering.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "Sebastian-20.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Business Development",
+      "Consulting",
+      "Photonics",
+      "Laser Technology",
+      "Technology Platform"
+    ],
+    "expected_answer_summary": "Sebastian Müller (Sebastian-20.pdf) is the CTO of Rosenxt Group based in Münster/Lingen, Germany. He holds a Ph.D. from Universität Hamburg, an M.S. in Photonics from Fachhochschule Münster, and a Diplom-Ingenieur in Laser Technology and Optics from Fachhochschule Münster. He served at ROSEN for over 9 years — including 3+ years as Head of Technology Platform and 6 years as Sensor Developer — before becoming CTO at Rosenxt Group in October 2023. His top skills include Business Development and Consulting."
+  },
+  {
+    "input": "Tell me about Sebastian Müller (Sebastian-20.pdf) — what has his career at ROSEN and Rosenxt looked like?",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "Sebastian-20.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "Business Development",
+      "Consulting",
+      "Photonics",
+      "Laser Technology",
+      "Technology Platform",
+      "Sensor Development"
+    ],
+    "expected_answer_summary": "Sebastian Müller (Sebastian-20.pdf) spent 9 years 4 months at ROSEN — 6 years as Sensor Developer (2014–2020) and then 3+ years as Head of Technology Platform (2020–2024). He transitioned to CTO of Rosenxt Group in October 2023, a role he has held since (2+ years). His academic training — Diplom-Ingenieur in Laser Technology and Optics, M.S. in Photonics, and Ph.D. — gives him strong deep-technology credentials. His LinkedIn top skills are Business Development and Consulting, indicating a transition toward strategic technology leadership."
+  },
+  {
+    "input": "Compare Sebastian Müller (Sebastian-20.pdf) and Deepak Patel (resume_00701-12.pdf) for a VP of Engineering or CTO role at a technology company.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "Sebastian-20.pdf",
+      "resume_00701-12.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "CTO",
+      "Business Development",
+      "Rust",
+      "Python",
+      "Microservices",
+      "Technology Platform",
+      "Sensor Development",
+      "Cloud Architecture"
+    ],
+    "expected_answer_summary": "Sebastian Müller is already a serving CTO with a deep background in sensor technology, photonics, and technology platform leadership in an industrial R&D environment, bringing strategic business development and consulting perspective. Deepak Patel is a Senior Software Engineer at Datadog with 10+ years in cloud-native backend development, holding AWS Solutions Architect and CISM certifications, but no C-suite experience. Müller is clearly the stronger fit for a CTO or VP Engineering role; Patel is stronger for a Principal Engineer or Engineering Director position."
+  },
+  {
+    "input": "How many candidates in the pool are currently in C-level, VP-level, or Director-level roles?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "CTO",
+      "VP",
+      "Director",
+      "Partner",
+      "Executive"
+    ],
+    "expected_answer_summary": "Five candidates in the pool hold C-level, VP-level, Director-level, or Partner-level positions. Sebastian Müller (Sebastian-20.pdf) is CTO at Rosenxt Group. Marie Klein (resume_04433-18.pdf) is VP of Security at Spotify. Marco Gonzalez (resume_04434-19.pdf) is Director of Clinical Operations at Oracle. Robert Brown (resume_04430-15.pdf) is a Partner at a SaaS Startup. Gary Garcia (resume_00698-9.pdf) is a Director at a VC-backed startup. This represents 5 out of 21 candidates at a senior leadership level."
+  },
+  {
+    "input": "Find entry-level Operations or Logistics candidates in London with SQL and Supply Chain Management skills.",
+    "expected_intent": "candidate_search",
+    "expected_response_mode": "shortlist",
+    "expected_candidate_ids": [
+      "resume_00702-13.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "SQL",
+      "Supply Chain Management",
+      "SCOR Framework",
+      "Lean Six Sigma"
+    ],
+    "expected_answer_summary": "Ankit Gupta (resume_00702-13.pdf) is an entry-level Operations and Logistics candidate based in London, UK, currently interning at Asana in Vancouver, Canada since August 2026. His core competencies include SQL, Supply Chain Management, SCOR Framework, and Lean Six Sigma. He is pursuing a B.S. in Information Systems at Seoul National University and speaks English, French, Dutch, Hindi, and Mandarin Chinese."
+  },
+  {
+    "input": "Tell me about Ankit Gupta (resume_00702-13.pdf) — his skills, internship experience, and background.",
+    "expected_intent": "candidate_deep_dive",
+    "expected_response_mode": "profile",
+    "expected_candidate_ids": [
+      "resume_00702-13.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "SQL",
+      "Supply Chain Management",
+      "SCOR Framework",
+      "Lean Six Sigma",
+      "Process Optimization"
+    ],
+    "expected_answer_summary": "Ankit Gupta (resume_00702-13.pdf) is an Operations/Logistics Student Intern at Asana (Vancouver) since August 2026, where he coordinated with cross-functional teams on process optimization and designed a pipeline generating $34M in revenue. He has zero prior professional experience beyond this internship and is pursuing a B.S. in Information Systems from Seoul National University. He is multilingual in English, French, Dutch, Hindi, and Mandarin Chinese — an asset for global supply chain roles."
+  },
+  {
+    "input": "Compare Ankit Gupta (resume_00702-13.pdf) with Ankit Nair (resume_00700-11.pdf) for a graduate scheme in operations or business analysis.",
+    "expected_intent": "candidate_compare",
+    "expected_response_mode": "comparison",
+    "expected_candidate_ids": [
+      "resume_00702-13.pdf",
+      "resume_00700-11.pdf"
+    ],
+    "expected_skills_mentioned": [
+      "SQL",
+      "Supply Chain Management",
+      "Lean Six Sigma",
+      "Financial Modeling",
+      "McKinsey Problem Solving",
+      "SCOR Framework"
+    ],
+    "expected_answer_summary": "Ankit Gupta (resume_00702-13.pdf) has zero years of prior experience and is in his first internship at Asana, focused on operations, supply chain, and SQL. Ankit Nair (resume_00700-11.pdf) has 1+ years at Morgan Stanley in consulting, with skills in financial modeling, McKinsey problem solving, six sigma, and AWS ML certification, pursuing dual degrees. For an operations/supply chain graduate scheme, Gupta's domain focus is more aligned; for a business analysis or consulting graduate scheme, Nair is the stronger candidate."
+  },
+  {
+    "input": "How many candidates in the pool have supply chain, logistics, or operations management experience or skills?",
+    "expected_intent": "pool_insight",
+    "expected_response_mode": "aggregation",
+    "expected_candidate_ids": [],
+    "expected_skills_mentioned": [
+      "Supply Chain Management",
+      "Logistics",
+      "Operations",
+      "SCOR Framework",
+      "Lean Six Sigma"
+    ],
+    "expected_answer_summary": "Two candidates in the pool have documented supply chain or logistics skills. Ankit Gupta (resume_00702-13.pdf) explicitly lists Supply Chain Management, SCOR Framework, and Lean Six Sigma as core competencies with his Asana internship focused on operations. Tola Adeleke (resume_00696-7.pdf) has indirect operations experience through cross-functional team coordination and task automation at Uber. The 10030015-4.pdf engineering candidate also completed Lean Six Sigma/5S training in an aerospace manufacturing context."
+  }
+]
