@@ -14,6 +14,7 @@ class RecruiterCopilotState(TypedDict, total=False):
     extracted_filters: dict            # {skills, years_min, location, languages, ...}
     target_candidate_ids: list[str]    # explicit IDs mentioned in query (deep-dive / compare)
     target_candidate_files: list[str]  # explicit file names mentioned in query
+    requested_k: int 
 
     # ── Retrieval ───────────────────────────────────────────────────
     retrieved_docs: list[Any]          # raw PGVector results

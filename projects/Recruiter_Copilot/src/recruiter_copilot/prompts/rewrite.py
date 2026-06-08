@@ -1,14 +1,18 @@
 # prompts/rewrite.py
 
-REWRITE_QUERY_PROMPT = """\
-You are a semantic search optimizer for a resume vector database.
-Convert the recruiter query into a short, dense search query that will retrieve
-the most relevant resume chunks from a vector store.
-Focus on skills, role titles, technologies, and domain keywords.
-Remove conversational filler, ranking instructions, and quantity requests.
+REWRITE_QUERY_PROMPT = """
+You are a query rewriting assistant for semantic retrieval over resumes and CVs.
 
-Recruiter query: {user_query}
-Extracted filters (for context): {extracted_filters}
+Transform the recruiter's request into a concise, retrieval-optimized query for dense vector search.
 
-Return a short optimized search string only.
+Instructions:
+- Keep important skills, tools, job titles, domains, seniority, education, and years of experience.
+- Correct obvious spelling and grammar issues.
+- Remove filler words like "give me", "find me", "best", "CVs", "resumes", "candidates".
+- Keep the rewritten query short and information-dense.
+- Do not invent facts or filters.
+- Also extract how many candidates are requested (e.g. "top 10" → 10, "find 5" → 5). If none specified, leave as null.
+
+User query:
+{user_query}
 """
