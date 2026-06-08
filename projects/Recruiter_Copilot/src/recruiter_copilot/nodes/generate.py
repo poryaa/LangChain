@@ -12,8 +12,6 @@ def get_llm() -> ChatOllama:
     return ChatOllama(model=model_name, temperature=0)
 
 
-# nodes/generate.py
-
 def generate_answer_node(state: RecruiterCopilotState) -> dict:
     user_query = state["user_query"]
     rewritten_query = state.get("rewritten_query", user_query)
@@ -28,7 +26,7 @@ def generate_answer_node(state: RecruiterCopilotState) -> dict:
             )
         }
 
-    #filter out docs with missing IDs / very weak evidence
+    # Filter out docs with missing IDs / very weak evidence
     filtered_docs = []
     for doc in docs:
         cid = str(doc.get("candidate_id", "")).strip().lower()
@@ -39,14 +37,20 @@ def generate_answer_node(state: RecruiterCopilotState) -> dict:
             continue
         if cid in ("", "unknown"):
             continue
-        # optional: also skip unknown filenames
         if fname in ("", "unknown", "unknown.pdf"):
             continue
 
         filtered_docs.append(doc)
 
-    # Keep at most 5 good candidates
-    docs = filtered_docs[:5]
+    # Purely dynamic: use requested_k if present, otherwise use all filtered docs
+    requested_k = state.get("requested_k")
+    if requested_k is None:
+        requested_k = len(filtered_docs)
+
+    # Never exceed what you actually have
+    requested_k = min(requested_k, len(filtered_docs))
+
+    docs = filtered_docs[:requested_k]
 
     if not docs:
         return {

@@ -6,10 +6,15 @@ from src.recruiter_copilot.state import RecruiterCopilotState
 
 
 def retrieve_node(state: RecruiterCopilotState) -> dict:
-    """Unchanged — semantic top-k retrieval for search/pool_insight."""
-    top_k = int(os.getenv("TOP_K", "5"))
-    rewritten_query = state.get("rewritten_query", state["user_query"])
+    """Semantic top-k retrieval for search/pool_insight."""
+    default_top_k = int(os.getenv("TOP_K", "10"))
+    requested_k = state.get("requested_k") or 5
+    top_k = max(default_top_k, requested_k * 3)
 
+    # Retrieve more than we will show to allow grading/reranking
+    top_k = max(default_top_k, requested_k * 3)
+
+    rewritten_query = state.get("rewritten_query", state["user_query"])
     retrieved_docs = retrieve_candidates(query=rewritten_query, k=top_k)
     return {
         "retrieved_docs": retrieved_docs,

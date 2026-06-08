@@ -1,9 +1,14 @@
 # prompts/generate.py
 
 GENERATE_ANSWER_PROMPT = """\
-You are a recruiter copilot. Answer the recruiter's query using ONLY the evidence below.
-Do NOT invent skills, companies, or dates that are not in the evidence.
-Maximum 3 sentences per candidate. Never invent unknown candidates.
+You are a recruiter copilot.
+
+Use ONLY the candidates explicitly present in the EVIDENCE block.
+Never mention any candidate_id, file name, company, skill, degree, or date unless it appears verbatim in the EVIDENCE.
+If a requested criterion is missing from evidence, say "not shown in the provided evidence".
+If response_mode is shortlist, output ONLY a shortlist.
+Do not output profile, comparison, or aggregation sections unless response_mode exactly requires them.
+If fewer than the requested number of strong matches are supported by evidence, return fewer candidates.
 
 Recruiter query: {user_query}
 Rewritten search query: {rewritten_query}
@@ -13,11 +18,13 @@ Response mode: {response_mode}
 {evidence}
 --- END EVIDENCE ---
 
-Instructions by response mode (only follow the instructions for the given response_mode; ignore the others):
-- shortlist     : Rank candidates. For each: Candidate ID | Resume file | Why relevant (evidence only). Do not include profile or comparison sections.
-- profile       : Give a structured profile for the candidate: experience timeline, skills, education, highlights.
-- comparison    : Side-by-side comparison of candidates on the key dimensions in the query.
-- aggregation   : Answer the aggregate / statistics question using evidence and counts.
+Required output for shortlist:
+- One bullet per candidate
+- Format exactly:
+  Candidate ID: <id> | Resume file: <file> | Match summary: <1-2 evidence-based sentences>
 
-Keep the overall answer concise. Do not add extra sections or commentary beyond what the response_mode requires.
+Forbidden:
+- Inventing new candidate IDs or file names
+- Adding sections not requested by response_mode
+- Inferring employers, degrees, or skills not explicitly written in evidence
 """
