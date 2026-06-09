@@ -66,6 +66,8 @@ def generate_answer_node(state: RecruiterCopilotState) -> dict:
     requested_k = max(int(requested_k), 1)
 
     filtered_candidates = []
+    seen_candidate_ids = set()
+
     for doc in candidates:
         content = _safe_str(doc.get("content"))
         candidate_id = _get_candidate_id(doc)
@@ -78,6 +80,10 @@ def generate_answer_node(state: RecruiterCopilotState) -> dict:
         if resume_file.lower() in {"", "unknown", "unknown.pdf"}:
             continue
 
+        if candidate_id in seen_candidate_ids:
+            continue
+
+        seen_candidate_ids.add(candidate_id)
         filtered_candidates.append(doc)
 
     filtered_candidates = filtered_candidates[:requested_k]

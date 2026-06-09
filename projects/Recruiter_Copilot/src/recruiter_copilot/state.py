@@ -36,6 +36,7 @@ class RecruiterCopilotState(TypedDict, total=False):
     # ── Quality checks ──────────────────────────────────────────────
     grounding_ok: bool
     grounding_reason: str
+    unsupported_candidate_ids: list[str]
     retry_count: int
     max_retries: int
 

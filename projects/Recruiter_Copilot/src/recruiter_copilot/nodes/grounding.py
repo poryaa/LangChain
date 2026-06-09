@@ -1,41 +1,48 @@
 # nodes/grounding.py
 
 import os
+import re
 
-from langchain_ollama import ChatOllama
-from pydantic import BaseModel, Field
-
-from src.recruiter_copilot.prompts.grounding import GROUNDING_CHECK_PROMPT
 from src.recruiter_copilot.state import RecruiterCopilotState
 
 
-class GroundingCheck(BaseModel):
-    grounded: bool = Field(
-        description=(
-            "Whether the generated answer is fully supported by the provided evidence, "
-            "does not introduce unsupported candidate facts, and follows the intended shortlist behavior."
-        )
-    )
-    reason: str = Field(
-        description="Short explanation of why the answer is grounded or not grounded."
-    )
+CANDIDATE_ID_RE = re.compile(r"\b[a-f0-9]{32}\b")
+MAX_REASON_IDS = 5
 
 
-def get_llm() -> ChatOllama:
-    model_name = os.getenv("FAST_LLM_MODEL", "gemma3:1b")
-    return ChatOllama(model=model_name, temperature=0)
+def _extract_candidate_ids(text: str) -> list[str]:
+    if not text:
+        return []
+    return sorted(set(CANDIDATE_ID_RE.findall(text)))
+
+
+def _build_short_reason(unsupported_ids: list[str]) -> str:
+    if not unsupported_ids:
+        return "Answer is grounded in the provided evidence."
+
+    shown = unsupported_ids[:MAX_REASON_IDS]
+    extra = len(unsupported_ids) - len(shown)
+    base = f"Unsupported candidate IDs in answer: {', '.join(shown)}"
+    if extra > 0:
+        base += f" ... and {extra} more."
+    return base
 
 
 def check_hallucination_node(state: RecruiterCopilotState) -> dict:
-    generated_answer = state.get("generated_answer", "")
-    user_query = state.get("user_query", "")
-    candidate_evidence = state.get("candidate_evidence", [])
-    selected_candidates = state.get("selected_candidates", [])
+    generated_answer = state.get("generated_answer", "") or ""
+    candidate_evidence = state.get("candidate_evidence", []) or []
+    selected_candidates = state.get("selected_candidates", []) or []
+
+    retry_count = state.get("retry_count", 0)
+    max_retries = state.get("max_retries", int(os.getenv("MAX_RETRIES", "2")))
 
     if not generated_answer or (not candidate_evidence and not selected_candidates):
         return {
             "grounding_ok": True,
             "grounding_reason": "No answer or evidence to verify.",
+            "unsupported_candidate_ids": [],
+            "retry_count": retry_count,
+            "max_retries": max_retries,
         }
 
     evidence_items = candidate_evidence
@@ -53,37 +60,24 @@ def check_hallucination_node(state: RecruiterCopilotState) -> dict:
                 }
             )
 
-    evidence_blocks = []
+    evidence_candidate_ids = set()
     for item in evidence_items[:10]:
-        evidence_blocks.append(
-            "\n".join(
-                [
-                    f"Rank: {item.get('rank', 'unknown')}",
-                    f"Candidate ID: {item.get('candidate_id', 'unknown')}",
-                    f"Resume file: {item.get('resume_file', 'unknown')}",
-                    f"Final score: {item.get('final_score', 'unknown')}",
-                    f"Why selected: {', '.join(item.get('score_reasons', [])) or 'not specified'}",
-                    f"Evidence excerpt: {item.get('content_excerpt', '')}",
-                ]
-            )
-        )
+        cid = item.get("candidate_id", "unknown")
+        if cid and cid != "unknown":
+            evidence_candidate_ids.add(cid)
 
-    evidence = "\n\n---\n\n".join(evidence_blocks)
+    answer_candidate_ids = set(_extract_candidate_ids(generated_answer))
+    unsupported_ids = sorted(answer_candidate_ids - evidence_candidate_ids)
 
-    prompt = GROUNDING_CHECK_PROMPT.format(
-        user_query=user_query,
-        generated_answer=generated_answer,
-        evidence=evidence,
-        expected_candidate_count=len(evidence_items),
-    )
-
-    llm = get_llm()
-    checker = llm.with_structured_output(GroundingCheck)
-    result = checker.invoke(prompt)
+    grounding_ok = len(unsupported_ids) == 0
+    grounding_reason = _build_short_reason(unsupported_ids)
 
     return {
-        "grounding_ok": result.grounded,
-        "grounding_reason": result.reason,
+        "grounding_ok": grounding_ok,
+        "grounding_reason": grounding_reason,
+        "unsupported_candidate_ids": unsupported_ids,
+        "retry_count": retry_count,
+        "max_retries": max_retries,
     }
 
 
