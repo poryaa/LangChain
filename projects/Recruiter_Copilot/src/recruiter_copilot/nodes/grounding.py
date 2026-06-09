@@ -1,6 +1,7 @@
 # nodes/grounding.py
 
 import os
+
 from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 
@@ -10,11 +11,13 @@ from src.recruiter_copilot.state import RecruiterCopilotState
 
 class GroundingCheck(BaseModel):
     grounded: bool = Field(
-        description="Whether the answer is fully supported by the retrieved evidence "
-                    "AND does not introduce new, discriminatory constraints."
+        description=(
+            "Whether the generated answer is fully supported by the provided evidence, "
+            "does not introduce unsupported candidate facts, and follows the intended shortlist behavior."
+        )
     )
     reason: str = Field(
-        description="Short explanation of why the answer is or is not grounded and safe."
+        description="Short explanation of why the answer is grounded or not grounded."
     )
 
 
@@ -26,26 +29,41 @@ def get_llm() -> ChatOllama:
 def check_hallucination_node(state: RecruiterCopilotState) -> dict:
     generated_answer = state.get("generated_answer", "")
     user_query = state.get("user_query", "")
-    docs = state.get("relevant_docs", state.get("retrieved_docs", []))
+    candidate_evidence = state.get("candidate_evidence", [])
+    selected_candidates = state.get("selected_candidates", [])
 
-    if not generated_answer or not docs:
+    if not generated_answer or (not candidate_evidence and not selected_candidates):
         return {
-            "hallucination_ok": True,
-            "hallucination_reason": "No answer or evidence to verify.",
+            "grounding_ok": True,
+            "grounding_reason": "No answer or evidence to verify.",
         }
 
-    llm = get_llm()
-    checker = llm.with_structured_output(GroundingCheck)
+    evidence_items = candidate_evidence
+    if not evidence_items:
+        evidence_items = []
+        for idx, doc in enumerate(selected_candidates, start=1):
+            evidence_items.append(
+                {
+                    "rank": idx,
+                    "candidate_id": doc.get("candidate_id", "unknown"),
+                    "resume_file": doc.get("resume_file", doc.get("file_name", "unknown")),
+                    "final_score": doc.get("_score"),
+                    "score_reasons": doc.get("_score_reasons", []),
+                    "content_excerpt": (doc.get("content", "") or "")[:500],
+                }
+            )
 
-    # Limit evidence size for speed, but cover all candidates used in generation
-    max_docs = min(len(docs), 10)
     evidence_blocks = []
-    for doc in docs[:max_docs]:
+    for item in evidence_items[:10]:
         evidence_blocks.append(
             "\n".join(
                 [
-                    f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
-                    f"Content: {doc.get('content', '')[:400]}",
+                    f"Rank: {item.get('rank', 'unknown')}",
+                    f"Candidate ID: {item.get('candidate_id', 'unknown')}",
+                    f"Resume file: {item.get('resume_file', 'unknown')}",
+                    f"Final score: {item.get('final_score', 'unknown')}",
+                    f"Why selected: {', '.join(item.get('score_reasons', [])) or 'not specified'}",
+                    f"Evidence excerpt: {item.get('content_excerpt', '')}",
                 ]
             )
         )
@@ -56,12 +74,16 @@ def check_hallucination_node(state: RecruiterCopilotState) -> dict:
         user_query=user_query,
         generated_answer=generated_answer,
         evidence=evidence,
+        expected_candidate_count=len(evidence_items),
     )
+
+    llm = get_llm()
+    checker = llm.with_structured_output(GroundingCheck)
     result = checker.invoke(prompt)
 
     return {
-        "hallucination_ok": result.grounded,
-        "hallucination_reason": result.reason,
+        "grounding_ok": result.grounded,
+        "grounding_reason": result.reason,
     }
 
 

@@ -1,4 +1,5 @@
 # state.py
+
 from typing import Any, Optional
 from typing_extensions import TypedDict
 
@@ -8,31 +9,33 @@ class RecruiterCopilotState(TypedDict, total=False):
     user_query: str
 
     # ── Query Understanding ─────────────────────────────────────────
-    intent: str                        # candidate_search | candidate_deep_dive | candidate_compare | pool_insight
-    response_mode: str                 # shortlist | profile | comparison | aggregation
-    rewritten_query: str               # semantic search string (search intent only)
-    extracted_filters: dict            # {skills, years_min, location, languages, ...}
-    target_candidate_ids: list[str]    # explicit IDs mentioned in query (deep-dive / compare)
-    target_candidate_files: list[str]  # explicit file names mentioned in query
-    requested_k: int 
+    intent: str
+    response_mode: str
+    rewritten_query: str
+    extracted_filters: dict[str, Any]
+    target_candidate_ids: list[str]
+    target_candidate_files: list[str]
+    requested_k: int
 
     # ── Retrieval ───────────────────────────────────────────────────
-    retrieved_docs: list[Any]          # raw PGVector results
-    relevant_docs: list[Any]           # after grading / reranking
+    retrieved_docs: list[dict[str, Any]]
     retrieval_count: int
 
-    # ── Intent-specific payloads ────────────────────────────────────
-    candidate_profiles: list[dict]     # deep-dive: structured profile per candidate
-    comparison_payload: dict           # compare: side-by-side evidence dict
-    aggregation_result: dict           # pool_insight: counts / grouped findings
+    # ── Deterministic ranking / selection ───────────────────────────
+    scored_candidates: list[dict[str, Any]]
+    selected_candidates: list[dict[str, Any]]
+    selected_count: int
+
+    # ── Evidence assembly ───────────────────────────────────────────
+    candidate_evidence: list[dict[str, Any]]
 
     # ── Generation ──────────────────────────────────────────────────
     generated_answer: str
     final_answer: str
 
     # ── Quality checks ──────────────────────────────────────────────
-    hallucination_ok: bool
-    hallucination_reason: str
+    grounding_ok: bool
+    grounding_reason: str
     retry_count: int
     max_retries: int
 

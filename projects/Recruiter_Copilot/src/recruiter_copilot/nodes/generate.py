@@ -12,66 +12,123 @@ def get_llm() -> ChatOllama:
     return ChatOllama(model=model_name, temperature=0)
 
 
+def _safe_str(value) -> str:
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def _get_resume_file(doc: dict) -> str:
+    metadata = doc.get("metadata", {}) or {}
+    return (
+        _safe_str(doc.get("resume_file"))
+        or _safe_str(doc.get("file_name"))
+        or _safe_str(metadata.get("resume_file"))
+        or _safe_str(metadata.get("file_name"))
+        or _safe_str(metadata.get("source"))
+        or "unknown"
+    )
+
+
+def _get_candidate_id(doc: dict) -> str:
+    metadata = doc.get("metadata", {}) or {}
+    return (
+        _safe_str(doc.get("candidate_id"))
+        or _safe_str(metadata.get("candidate_id"))
+        or _safe_str(metadata.get("id"))
+        or "unknown"
+    )
+
+
 def generate_answer_node(state: RecruiterCopilotState) -> dict:
     user_query = state["user_query"]
     rewritten_query = state.get("rewritten_query", user_query)
     response_mode = state.get("response_mode", "shortlist")
-    docs = state.get("relevant_docs", state.get("retrieved_docs", []))
 
-    if not docs:
+    candidates = state.get("selected_candidates", [])
+    if not candidates:
+        candidates = state.get("scored_candidates", [])
+    if not candidates:
+        candidates = state.get("retrieved_docs", [])
+
+    if not candidates:
         return {
             "generated_answer": (
                 f"No relevant candidates found for: {user_query}\n"
                 f"Rewritten query: {rewritten_query}"
-            )
+            ),
+            "candidate_evidence": [],
         }
 
-    # Filter out docs with missing IDs / very weak evidence
-    filtered_docs = []
-    for doc in docs:
-        cid = str(doc.get("candidate_id", "")).strip().lower()
-        fname = str(doc.get("file_name", "")).strip().lower()
-        content = doc.get("content", "") or ""
-
-        if not content or len(content.strip()) < 80:
-            continue
-        if cid in ("", "unknown"):
-            continue
-        if fname in ("", "unknown", "unknown.pdf"):
-            continue
-
-        filtered_docs.append(doc)
-
-    # Purely dynamic: use requested_k if present, otherwise use all filtered docs
     requested_k = state.get("requested_k")
     if requested_k is None:
-        requested_k = len(filtered_docs)
+        requested_k = len(candidates)
+    requested_k = max(int(requested_k), 1)
 
-    # Never exceed what you actually have
-    requested_k = min(requested_k, len(filtered_docs))
+    filtered_candidates = []
+    for doc in candidates:
+        content = _safe_str(doc.get("content"))
+        candidate_id = _get_candidate_id(doc)
+        resume_file = _get_resume_file(doc)
 
-    docs = filtered_docs[:requested_k]
+        if len(content) < 80:
+            continue
+        if candidate_id.lower() in {"", "unknown"}:
+            continue
+        if resume_file.lower() in {"", "unknown", "unknown.pdf"}:
+            continue
 
-    if not docs:
+        filtered_candidates.append(doc)
+
+    filtered_candidates = filtered_candidates[:requested_k]
+
+    if not filtered_candidates:
         return {
             "generated_answer": (
                 f"No high-confidence candidates found for: {user_query}\n"
                 f"Rewritten query: {rewritten_query}"
-            )
+            ),
+            "candidate_evidence": [],
         }
 
-    llm = get_llm()
-
+    candidate_evidence = []
     evidence_blocks = []
-    for doc in docs:
+
+    for idx, doc in enumerate(filtered_candidates, start=1):
+        content = _safe_str(doc.get("content"))
+        candidate_id = _get_candidate_id(doc)
+        resume_file = _get_resume_file(doc)
+
+        evidence_item = {
+            "rank": idx,
+            "candidate_id": candidate_id,
+            "resume_file": resume_file,
+            "distance": doc.get("_distance", doc.get("score")),
+            "base_similarity": doc.get("_base_similarity"),
+            "bonus": doc.get("_bonus"),
+            "final_score": doc.get("_score"),
+            "score_reasons": doc.get("_score_reasons", []),
+            "content_excerpt": content[:500],
+        }
+        candidate_evidence.append(evidence_item)
+
+        reasons_text = ", ".join(evidence_item["score_reasons"]) or "semantic retrieval match"
+
         evidence_blocks.append(
-            "\n".join([
-                f"Candidate ID: {doc.get('candidate_id', 'unknown')}",
-                f"Resume file: {doc.get('file_name', 'unknown')}",
-                f"Retrieval score: {doc.get('score', 0.0):.4f}",
-                f"Content: {doc.get('content', '')[:400]}",
-            ])
+            "\n".join(
+                [
+                    f"Rank: {idx}",
+                    f"Candidate ID: {candidate_id}",
+                    f"Resume file: {resume_file}",
+                    f"Final score: {evidence_item['final_score']}",
+                    f"Base similarity: {evidence_item['base_similarity']}",
+                    f"Bonus: {evidence_item['bonus']}",
+                    f"Why selected: {reasons_text}",
+                    f"Evidence excerpt: {evidence_item['content_excerpt']}",
+                ]
+            )
         )
+
     evidence = "\n\n---\n\n".join(evidence_blocks)
 
     prompt = GENERATE_ANSWER_PROMPT.format(
@@ -80,5 +137,11 @@ def generate_answer_node(state: RecruiterCopilotState) -> dict:
         response_mode=response_mode,
         evidence=evidence,
     )
+
+    llm = get_llm()
     response = llm.invoke(prompt)
-    return {"generated_answer": response.content}
+
+    return {
+        "generated_answer": response.content,
+        "candidate_evidence": candidate_evidence,
+    }

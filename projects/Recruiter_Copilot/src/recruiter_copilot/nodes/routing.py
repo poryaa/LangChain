@@ -1,11 +1,10 @@
 # nodes/routing.py
+
 import os
 from typing import Literal
 
 from src.recruiter_copilot.state import RecruiterCopilotState
 
-
-# ── After understand_query ────────────────────────────────────────────────────
 
 def route_after_understanding(
     state: RecruiterCopilotState,
@@ -20,8 +19,6 @@ def route_after_understanding(
     return "rewrite_query"
 
 
-# ── After grade ───────────────────────────────────────────────────────────────
-
 def route_after_grading(
     state: RecruiterCopilotState,
 ) -> Literal["generate_answer", "answer_question"]:
@@ -30,12 +27,14 @@ def route_after_grading(
     return "answer_question"
 
 
-# ── After hallucination check ─────────────────────────────────────────────────
-
 def route_after_hallucination_check(
     state: RecruiterCopilotState,
 ) -> Literal["answer_question", "increment_retry"]:
-    if state.get("hallucination_ok", False):
+    grounded_ok = state.get("grounding_ok")
+    if grounded_ok is None:
+        grounded_ok = state.get("hallucination_ok", False)
+
+    if grounded_ok:
         return "answer_question"
 
     retry_count = state.get("retry_count", 0)
