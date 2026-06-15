@@ -1,10 +1,10 @@
 # Recruiter Copilot
 
-A production-oriented RAG system for querying and analyzing a pool of 10,498 resumes with LangGraph, PGVector, and local Ollama models. It supports recruiter workflows such as candidate search, profile deep-dives, and grounded comparisons, and is designed to be run and inspected through `langgraph dev` with LangSmith tracing enabled.[file:3]
+A production-oriented RAG system for querying and analyzing a pool of 10,498 resumes with LangGraph, PGVector, and local Ollama models. It supports recruiter workflows such as candidate search, profile deep-dives, and grounded comparisons, and is designed to be run and inspected through `langgraph dev` with LangSmith tracing enabled.
 
 ## Overview
 
-The system processes recruiter queries through a graph-based workflow: understand the request, optimize it for retrieval, fetch relevant resume evidence, grade retrieved documents, generate an answer, and optionally verify groundedness before returning the final response.[file:3]
+The system processes recruiter queries through a graph-based workflow: understand the request, optimize it for retrieval, fetch relevant resume evidence, grade retrieved documents, generate an answer, and optionally verify groundedness before returning the final response.
 
 Typical use cases:
 - Find candidates matching skills, experience, or role constraints.
@@ -79,11 +79,11 @@ flowchart TD
     └── upload_eval_dataset.py
 ```
 
-The repository also includes smoke tests for graph execution and PGVector integration, plus a pre-production evaluation workflow with an eval dataset and LLM judge utilities.[file:3]
+The repository also includes smoke tests for graph execution and PGVector integration, plus a pre-production evaluation workflow with an eval dataset and LLM judge utilities.
 
 ## Configuration
 
-The system is configured through environment variables for tracing, database connectivity, model selection, and runtime behavior. The current setup uses LangSmith tracing, Postgres + PGVector, `qwen3-embedding:8b` for embeddings, `gemma3:1b` as the fast model, and `gemma3:4b` as the generation model.[file:3]
+The system is configured through environment variables for tracing, database connectivity, model selection, and runtime behavior. The current setup uses LangSmith tracing, Postgres + PGVector, `qwen3-embedding:8b` for embeddings, `gemma3:1b` as the fast model, and `gemma3:4b` as the generation model.
 
 Key settings:
 - `LANGSMITH_TRACING` — enables LangSmith tracing.
@@ -101,7 +101,7 @@ Key settings:
 
 ## Run with LangGraph
 
-This project is intended to be developed, tested, and inspected through LangGraph development tooling and LangSmith traces.[file:3]
+This project is intended to be developed, tested, and inspected through LangGraph development tooling and LangSmith traces.
 
 1. Create a `.env` file with LangSmith, Postgres, PGVector, and model settings.
 2. Install dependencies:
@@ -113,7 +113,7 @@ This project is intended to be developed, tested, and inspected through LangGrap
    ```bash
    langgraph dev
    ```
-5. Open the LangGraph development UI, run the graph defined in `langgraph.json`, and inspect traces in LangSmith.[file:3]
+5. Open the LangGraph development UI, run the graph defined in `langgraph.json`, and inspect traces in LangSmith.
 
 ## Testing
 
@@ -125,7 +125,7 @@ pytest tests/test_pgvector_smoke.py
 pytest tests/test_eval_preproduction.py
 ```
 
-These tests cover graph execution, vector store connectivity, and pre-production evaluation behavior.[file:3]
+These tests cover graph execution, vector store connectivity, and pre-production evaluation behavior.
 
 ## Tech stack
 
