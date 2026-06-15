@@ -16,3 +16,4 @@ __pycache__/
 *.pckl
 .langgraph_api/
 projects/Incident Investigation Copilot/data
+projects/Incident Investigation Copilot/.env

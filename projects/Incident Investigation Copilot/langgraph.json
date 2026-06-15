@@ -1,0 +1,13 @@
+{
+  "graphs": {
+    "incident_copilot": {
+      "entrypoint": "incident_copilot.graph:build_graph"
+    }
+  },
+  "python_path": ["src"],
+  "dependencies": [
+    "langgraph",
+    "langchain"
+  ],
+  "env": ".env"
+}
