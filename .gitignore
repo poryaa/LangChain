@@ -15,3 +15,4 @@ __pycache__/
 # LangGraph / LangChain runtime state
 *.pckl
 .langgraph_api/
+projects/Incident Investigation Copilot/data
