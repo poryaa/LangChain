@@ -79,7 +79,75 @@ Each incident should include:
 - `relevant_metric_windows`
 - `expected_tools`
 - `expected_answer_keywords`
+# Phase 0 Dataset: HDFS_v1
 
+## What It Is
+
+**HDFS_v1** (Hadoop Distributed File System logs) is a real-world benchmark log dataset collected from a distributed storage cluster. It contains ~11 million raw log lines emitted by HDFS during a workload run, where every read, write, replication, and failure event is recorded. Each log line is tagged with a **block ID** — the unique identifier of the data chunk being operated on.
+
+The dataset is part of the [Loghub collection](https://github.com/logpai/loghub) maintained by LogPAI, and is one of the most widely used benchmarks in AIOps and log anomaly detection research.
+
+---
+
+## Mental Model
+
+HDFS splits every stored file into **blocks**. Each block gets a unique ID (e.g. `blk_-1608999687919862906`). Every operation touching that block — replication, read, write, IOException — emits a log line tagged with that block ID.
+
+The dataset groups all log lines per block ID into a **trace** (the block's full event timeline), then labels each trace as `Normal` or `Anomaly`. One trace = one incident.
+
+---
+
+## Key Files
+
+| File | Contents | Use in Phase 0 |
+|---|---|---|
+| `HDFS.log` | Raw log lines: `date time pid level component message` | Skip — too large (11M lines) |
+| `anomaly_label.csv` | `BlockId`, `Label` (Normal / Anomaly) | Ground truth → maps to `root_cause` |
+| `Event_traces.csv` | Block ID + sequence of event IDs per trace | Your `incidents.csv` — one row per incident |
+| `HDFS_templates.csv` | Event ID → human-readable log template string | Translates event sequences into readable descriptions |
+| `Event_occurrence_matrix.csv` | Block ID × event count feature matrix | Skip for Phase 0 (ML feature engineering) |
+
+---
+
+## Concrete Example
+
+`Event_traces.csv` entry:
+```
+blk_-1608999687919862906  →  [E5, E22, E11, E9, E11, E9, E26]
+```
+
+`anomaly_label.csv` says:
+```
+blk_-1608999687919862906, Anomaly
+```
+
+`HDFS_templates.csv` tells you E26 means:
+> *"Received exception while serving blk_ from ...: java.io.IOException"*
+
+**Result:** this block had a replication sequence that ended in an IOException → labeled Anomaly → one complete incident with a full log trail and ground truth.
+
+---
+
+## Why It Fits Phase 0
+
+- **No labeling work** — ground truth is already provided
+- **Structured format** — `Event_traces.csv` is already one-row-per-incident, ready to load
+- **Easy to subset** — take 50–100 anomalous + 50 normal traces; no need to process all 11M lines
+- **Clear eval loop** — agent investigates a block trace → claims a root cause → compare against `anomaly_label.csv` → pass/fail score
+
+> **Gap to fill synthetically:** HDFS has no `metrics.csv` or `deployments.csv`. Generate these with a short Python script in `db_prep/` as described in the implementation plan.
+
+---
+
+## Download
+
+```bash
+# From Loghub GitHub
+https://github.com/logpai/loghub  # → HDFS section
+
+# Or directly via Zenodo (citable)
+https://zenodo.org/records/8196385
+```
 
 ## Phase 1
 

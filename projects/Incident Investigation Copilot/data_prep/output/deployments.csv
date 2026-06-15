@@ -1,0 +1,6 @@
+deploy_id,service,version,timestamp,status
+deploy_1,hdfs-datanode,2.1.1,2008-11-02T22:00:00,success
+deploy_2,hdfs-datanode,2.1.2,2008-11-03T22:00:00,success
+deploy_3,hdfs-datanode,2.1.3,2008-11-04T22:00:00,success
+deploy_4,hdfs-datanode,2.1.4,2008-11-05T22:00:00,success
+deploy_5,hdfs-datanode,2.1.5,2008-11-06T22:00:00,success
