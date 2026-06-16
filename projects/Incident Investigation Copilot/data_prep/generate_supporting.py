@@ -5,7 +5,7 @@ import random
 import json
 from pathlib import Path
 
-OUT = Path("data_prep/output")
+OUT = Path("../data_prep/output")
 
 # Load incidents from the already-generated file
 with open(OUT / "incidents.json") as f:

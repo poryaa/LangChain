@@ -5,8 +5,8 @@ import json
 import random
 from pathlib import Path
 
-DATA = Path("data/raw_data")
-OUT  = Path("data_prep/output")
+DATA = Path("../data/raw_data")
+OUT  = Path("../data_prep/output")
 OUT.mkdir(parents=True, exist_ok=True)
 
 # 1. Load only Event_traces.csv — it already has labels
@@ -15,9 +15,9 @@ templates = pd.read_csv(DATA / "HDFS.log_templates.csv")
 
 tmpl_map = dict(zip(templates["EventId"], templates["EventTemplate"]))
 
-# 2. Sample: 75 Fail + 25 Success
-failures = traces[traces["Label"] == "Fail"].sample(75, random_state=42)
-successes = traces[traces["Label"] == "Success"].sample(25, random_state=42)
+# 2. Sample: 25 Fail + 75 Success
+failures = traces[traces["Label"] == "Fail"].sample(25, random_state=42)
+successes = traces[traces["Label"] == "Success"].sample(75, random_state=42)
 subset = pd.concat([failures, successes]).reset_index(drop=True)
 
 # 3. In the loop — fix column name and parsing
