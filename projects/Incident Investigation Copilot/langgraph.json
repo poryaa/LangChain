@@ -1,13 +1,11 @@
 {
-  "graphs": {
-    "incident_copilot": {
-      "entrypoint": "incident_copilot.graph:build_graph"
-    }
-  },
-  "python_path": ["src"],
   "dependencies": [
     "langgraph",
-    "langchain"
+    "langchain",
+    "langchain-ollama"
   ],
+  "graphs": {
+    "incident_copilot": "src/incident_copilot/graph.py:build_graph"
+  },
   "env": ".env"
 }

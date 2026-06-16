@@ -13,25 +13,27 @@ def _load_incidents() -> List[dict]:
         return json.load(f)
 
 
+# nodes/plan.py
+import re
+
 def plan_investigation(state: IncidentState) -> IncidentState:
-    """
-    Phase 0: pick a single incident deterministically.
-    Later this can filter by user_query or time window.
-    """
     incidents = _load_incidents()
-    if not incidents:
-        state["evidence"] = ["No incidents available in dataset."]
-        state["selected_incident_id"] = None
-        return state
+    query = state.get("user_query", "")
 
-    first = incidents[0]
+    # Try to extract a block ID from the query (starts with blk_)
+    match = re.search(r"blk_-?\d+", query)
+    if match:
+        target_id = match.group()
+        found = next((inc for inc in incidents if inc["incident_id"] == target_id), None)
+    else:
+        found = None
+
+    # Fall back to first incident if not found
+    first = found or incidents[0]
     state["selected_incident_id"] = first["incident_id"]
-
-    # Seed basic evidence for later nodes
     state["evidence"] = [
         f"Service: {first['service']}",
         f"Severity: {first['severity']}",
         f"Root cause (label): {first['root_cause']}",
     ]
-
     return state
